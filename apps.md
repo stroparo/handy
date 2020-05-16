@@ -77,6 +77,6 @@
 ## System - Repositories
 
 * enterprise linux - [epel](https://dl.fedoraproject.org/pub/epel/) - [fedora](https://apps.fedoraproject.org/packages/) - [oracle](http://yum.oracle.com/)
-* [flatpak](https://flathub.org/home) - [setup](https://flatpak.org/setup/)
+* [flatpak](https://flathub.org/home) - [setup](https://flatpak.org/setup/)/[Pop!_OS](https://flatpak.org/setup/Pop!_OS/)_
 * [ubuntu](https://packages.ubuntu.com/search?keywords=search)
 
