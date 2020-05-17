@@ -39,16 +39,14 @@
 
 ## Productivity
 
+* cloud - [nextcloud](https://nextcloud.com/install/)
+* collab teams - [tmate](https://tmate.io/)
 * dictionaries - [google(chrome)](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja)
 * habit - [habitctl](https://github.com/blinry/habitctl)
 * pomodoro - [marinara(chrome)](https://chrome.google.com/webstore/detail/marinara-pomodoro%C2%AE-assist/lojgmehidjdhhbmpjfamhpkpodfcodef) - [tomato-timer](https://tomato-timer.com/)
+* net remote desktop - [ru.viewer](https://www.remoteutilities.com/download/)
 * sound white noise - [coffitivity](https://coffitivity.com/) - [mynoise](https://mynoise.net/)/['n'co](https://mynoise.net/NoiseMachines/whiteNoiseGenerator.php)/[irish](https://mynoise.net/NoiseMachines/windSeaRainNoiseGenerator.php)
 * web video - [speed(chrome)](https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk?hl=en)
-
-## Productivity - Collaboration
-
-* remote desktop - [ru.viewer](https://www.remoteutilities.com/download/)
-* teams - [tmate](https://tmate.io/)
 
 ## Productivity - Ergonomy
 
