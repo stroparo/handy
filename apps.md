@@ -6,7 +6,7 @@
 
 * apps for windows [ninite](https://ninite.com/7zip-adoptjavax11-adoptjavax8-chrome-classicstart-discord-irfanview-klitecodecs-winamp-windirstat-winmerge/) - [full](https://ninite.com/7zip-adoptjavax11-adoptjavax8-adoptjdkx11-adoptjdkx8-chrome-classicstart-discord-dropbox-googlebackupandsync-irfanview-klitecodecs-qbittorrent-steam-winamp-windirstat-winmerge/) - [nojre](https://ninite.com/7zip-chrome-classicstart-discord-irfanview-klitecodecs-winamp-windirstat-winmerge/)
 * file explorers - [organize](https://github.com/tfeldmann/organize) - [qr-filetransfer](https://github.com/sdushantha/qr-filetransfer)
-* filesystem - [bleachbit](https://www.bleachbit.org/) - [dupfinder](https://www.auslogics.com/en/software/duplicate-file-finder/)
+* filesystem - [bleachbit](https://www.bleachbit.org/) - [dupfinder](https://www.auslogics.com/en/software/duplicate-file-finder/) - [fsearch](https://github.com/cboxdoerfer/fsearch)
 * fonts - [fantasque-sans](https://github.com/belluzj/fantasque-sans)/[fontlibrary.org](https://fontlibrary.org/en/font/fantasque-sans-mono) - [FiraCode](https://github.com/tonsky/FiraCode)
 
 ## Design & Authoring
