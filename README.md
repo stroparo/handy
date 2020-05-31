@@ -1,15 +1,15 @@
 # Handy
 
+* [@devlinks](https://github.com/stroparo/devlinks/blob/master/README.md#dev-links)
 * [./apps](apps.md#apps)
 * [./fsim](fsim.md)
-* [cal-2020](https://www.calendarr.com/brasil/calendario-2020/)
+* [cal](https://www.calendarr.com/brasil/calendario-2020/)
 * conf - [dotfiles](https://github.com/stroparo/dotfiles#run-it) - [ds](https://github.com/stroparo/ds#installation) - [winconf](https://bitbucket.org/stroparo/winconf)
     - Custom [cz](https://github.com/stroparo/ds-cz#daily-shells-cz)/[bb](https://bitbucket.org/stroparo/ds-cz) - [cz-mc](https://github.com/stroparo/ds-cz-mc#daily-shells-mc-cz)/[bb](https://bitbucket.org/stroparo/ds-cz-mc)
     - keyb::ez - [@cz](https://configure.ergodox-ez.com/ergodox-ez/layouts/DzyNJ/latest/0) - [default](https://configure.ergodox-ez.com/ergodox-ez/layouts/default/latest/0) - [min](https://configure.ergodox-ez.com/ergodox-ez/layouts/yZ5vr/latest/0) - [revs](https://configure.ergodox-ez.com/my_layouts)
-* [Favs](https://github.com/stroparo/links/blob/master/README.md#links) - [apps](https://github.com/stroparo/links/blob/master/apps.md#apps)
-* Favs::[dev](https://github.com/stroparo/devlinks/blob/master/README.md#dev-links) - [guides](https://github.com/stroparo/devlinks/blob/master/devguides.md#dev-guides)
+* tv - [myepisodes](https://www.myepisodes.com/allinone/)
+* tv [youtube](https://www.youtube.com/) - [$$](https://www.youtube.com/paid_memberships) - [playlists](https://www.youtube.com/user/captbr/playlists?shelf_id=0&view=1&sort=dd)/[classic-ui](https://www.youtube.com/playlist?list=FL3noAZOIecvNctqRLLfJ1Fg&disable_polymer=1)/[wl](https://www.youtube.com/playlist?list=WL) - [up](https://www.youtube.com/my_videos?o=U) - [@captbr](https://www.youtube.com/user/captbr/videos)
 * wx - [barigui](https://www.wunderground.com/forecast/br/curitiba/ICURITIB28?cm_ven=localwx_10day)/[cc](https://www.wunderground.com/forecast/br/curitiba/IPRCURIT2?cm_ven=localwx_10day) - [windy](https://www.windy.com/?2019-08-14-18,-20.592,-59.985,4,i:pressure)/[sbbi](https://www.windy.com/station/ad-SBBI?2019-08-14-18,-25.951,-49.128,8,i:pressure)
-* [youtube](https://www.youtube.com/) - [$$](https://www.youtube.com/paid_memberships) - [playlists](https://www.youtube.com/user/captbr/playlists?shelf_id=0&view=1&sort=dd)/[classic-ui](https://www.youtube.com/playlist?list=FL3noAZOIecvNctqRLLfJ1Fg&disable_polymer=1)/[wl](https://www.youtube.com/playlist?list=WL) - [up](https://www.youtube.com/my_videos?o=U) - [@captbr](https://www.youtube.com/user/captbr/videos)
 
 ---
 
