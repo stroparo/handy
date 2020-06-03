@@ -42,6 +42,7 @@
 * cloud - [nextcloud](https://nextcloud.com/install/)
 * collab teams - [tmate](https://tmate.io/)
 * dictionaries - [google(chrome)](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja)
+* fin - [beancount](http://furius.ca/beancount/)/[doc](https://beancount.github.io/docs/)/[repo](https://github.com/beancount/beancount)
 * habit - [habitctl](https://github.com/blinry/habitctl)
 * pomodoro - [marinara(chrome)](https://chrome.google.com/webstore/detail/marinara-pomodoro%C2%AE-assist/lojgmehidjdhhbmpjfamhpkpodfcodef) - [tomato-timer](https://tomato-timer.com/)
 * net remote desktop - [ru.viewer](https://www.remoteutilities.com/download/)
