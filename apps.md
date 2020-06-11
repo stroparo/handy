@@ -55,6 +55,7 @@
 * eye strain - [darkreader.org](https://darkreader.org/) - for browsers (chrome, firefox etc.)
 * keyb ergodox - [teensy](https://www.pjrc.com/teensy/loader.html) - [wally](https://github.com/zsa/wally#wally)
 * keyb ergonomy - [touchcursor homerow nav (win)](http://martin-stone.github.io/touchcursor/)
+* keyb layout - [US intl with altgr dead keys emulation](https://github.com/pieter-degroote/UltimateKEYS)
 * keyb macros - [ClipboardFusion](https://www.clipboardfusion.com/Macros/) - [linux](https://github.com/MaxPleaner/linux-keyboard-macros)
 * keyb macros autohotkey docs - [commands](https://autohotkey.com/docs/commands/) - [hotkeys](https://autohotkey.com/docs/Hotkeys.htm) - [hotstrings](https://autohotkey.com/docs/Hotstrings.htm)
 * keyb modifier info: [traystatus](https://www.traystatus.com/)
@@ -64,6 +65,7 @@
 ## Security
 
 * [keepass](https://keepass.info/)
+* [keepassxc](https://keepassxc.org/)
 
 ## System
 
