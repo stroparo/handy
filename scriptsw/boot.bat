@@ -72,7 +72,7 @@ set MCONENOT=%OF16ONEN%
 set MCOUTLOO=%OF16OUTL%
 
 :: Sec
-set MYKEEPASS=%MYOPT%\keepass\keepass.exe
+set MYKEEPASS=%MYOPT%\keepassxc\KeePassXC.exe
 set MYPAGEANT=%MYOPT%\puttycm\putty\pageant.exe
 
 :: Terminal emulators
@@ -99,7 +99,7 @@ set AHKWPR=%HANDYSDIR%\macros\wpr.ahk
 if exist %AHKPROG% if exist %AHKWPR% start %AHKPROG% %AHKWPR%
 
 :: Sec
-tasklist | findstr keepass || if exist %MYKEEPASS% start /max %MYKEEPASS%
+tasklist | findstr KeePassXC || if exist %MYKEEPASS% start /max %MYKEEPASS%
 
 :: Terminal - ConEmu
 cd %WSDIR%
@@ -128,6 +128,9 @@ if exist E:\PortableApps set PORTABLEPARENT=E:
 if exist %USERPROFILE%\PortableApps set PORTABLEPARENT=%USERPROFILE%
 if exist %DROPBOXHOME%\PortableApps set PORTABLEPARENT=%DROPBOXHOME%
 if exist Z:\PortableApps set PORTABLEPARENT=Z:
+
+set AHKUK=%DROPBOXHOME%\sw-4windows\UltimateKEYS.ahk
+if exist %AHKUK% start %AHKPROG% %AHKUK%
 
 :: Calls:
 
