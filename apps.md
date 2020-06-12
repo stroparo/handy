@@ -53,12 +53,12 @@
 
 * clipboard - [ClipboardFusion](https://www.clipboardfusion.com/Macros/) - [CopyQ](https://github.com/hluk/CopyQ)
 * eye strain - [darkreader.org](https://darkreader.org/) - for browsers (chrome, firefox etc.)
-* keyb ergodox - [teensy](https://www.pjrc.com/teensy/loader.html) - [wally](https://github.com/zsa/wally#wally)
+* keyb ergodox-ez - [teensy](https://www.pjrc.com/teensy/loader.html) - [wally](https://github.com/zsa/wally#wally)
 * keyb ergonomy - [touchcursor homerow nav (win)](http://martin-stone.github.io/touchcursor/)
+* keyb info display - [traystatus](https://www.traystatus.com/)
 * keyb layout - [US intl with altgr dead keys emulation](https://github.com/pieter-degroote/UltimateKEYS)
 * keyb macros - [ClipboardFusion](https://www.clipboardfusion.com/Macros/) - [linux](https://github.com/MaxPleaner/linux-keyboard-macros)
 * keyb macros autohotkey docs - [commands](https://autohotkey.com/docs/commands/) - [hotkeys](https://autohotkey.com/docs/Hotkeys.htm) - [hotstrings](https://autohotkey.com/docs/Hotstrings.htm)
-* keyb modifier info: [traystatus](https://www.traystatus.com/)
 * mouse chrome - [codecopy](https://chrome.google.com/webstore/detail/codecopy/fkbfebkcoelajmhanocgppanfoojcdmg) - [linkclump](https://chrome.google.com/webstore/detail/linkclump/lfpjkncokllnfokkgpkobnkbkmelfefj) - [tabcopy](https://chrome.google.com/webstore/detail/tabcopy/micdllihgoppmejpecmkilggmaagfdmb)
 * mouse firefox - [snaplinksplus](https://addons.mozilla.org/en-US/firefox/addon/snaplinksplus/)
 
