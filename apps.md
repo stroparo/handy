@@ -21,9 +21,9 @@
 
 ## Documenting
 
+* design / prototyping / mockups - [Pencil](http://pencil.evolus.vn/Default.html) - [whimsical](https://whimsical.com/)
 * [docsify](https://docsify.js.org/#/?id=docsify)
-* graphics - [Pencil](http://pencil.evolus.vn/Default.html)
-* note taking - [boostnote](https://github.com/BoostIO/Boostnote) - [joplin](https://joplinapp.org/)
+* note taking - [joplin](https://joplinapp.org/) - [notion](https://notion.so/)
 * wikis + markdown - [Docusaurus](https://docusaurus.io/) - [MkDocs](https://www.mkdocs.org) - [Wiki.js](https://wiki.js.org/)
 
 ## Health
