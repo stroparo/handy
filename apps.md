@@ -64,6 +64,7 @@
 
 ## Security
 
+* [firejail](https://firejail.wordpress.com/) - app sandboxing for linux & mac
 * [keepass](https://keepass.info/)
 * [keepassxc](https://keepassxc.org/)
 
