@@ -23,7 +23,7 @@
 
 * design / prototyping / mockups - [Pencil](http://pencil.evolus.vn/Default.html) - [whimsical](https://whimsical.com/)
 * [docsify](https://docsify.js.org/#/?id=docsify)
-* note taking - [joplin](https://joplinapp.org/) - [notion](https://notion.so/)
+* note taking - [joplin](https://joplinapp.org/) - [notion](https://notion.so/)/[lotion(linux)](https://github.com/puneetsl/lotion)
 * wikis + markdown - [Docusaurus](https://docusaurus.io/) - [MkDocs](https://www.mkdocs.org) - [Wiki.js](https://wiki.js.org/)
 
 ## Health
