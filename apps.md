@@ -19,7 +19,7 @@
 * videos - [kdenlive](https://kdenlive.org/en/)
   - [recordit (+gif)](https://recordit.co/)
 
-## Documenting
+## Design & Documentation
 
 * design / prototyping / mockups - [Pencil](http://pencil.evolus.vn/Default.html) - [whimsical](https://whimsical.com/)
 * [docsify](https://docsify.js.org/#/?id=docsify)
@@ -42,7 +42,7 @@
 * cloud - [nextcloud](https://nextcloud.com/install/)
 * collab teams - [tmate](https://tmate.io/)
 * dictionaries - [google(chrome)](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja)
-* fin - [beancount](http://furius.ca/beancount/)/[doc](https://beancount.github.io/docs/)/[repo](https://github.com/beancount/beancount)
+* fin - [beancount](http://furius.ca/beancount/)/[doc](https://beancount.github.io/docs/)/[repo](https://github.com/beancount/beancount)/[vscode-extension](https://marketplace.visualstudio.com/items?itemName=Lencerf.beancount) - [fava(beancount UI)](https://beancount.github.io/fava/)
 * habit - [habitctl](https://github.com/blinry/habitctl)
 * pomodoro - [marinara(chrome)](https://chrome.google.com/webstore/detail/marinara-pomodoro%C2%AE-assist/lojgmehidjdhhbmpjfamhpkpodfcodef) - [tomato-timer](https://tomato-timer.com/)
 * net remote desktop - [ru.viewer](https://www.remoteutilities.com/download/)
@@ -53,6 +53,7 @@
 
 * clipboard - [ClipboardFusion](https://www.clipboardfusion.com/Macros/) - [CopyQ](https://github.com/hluk/CopyQ)
 * eye strain - [darkreader.org](https://darkreader.org/) - for browsers (chrome, firefox etc.)
+* keyb concepts - [dead keys layouts](https://en.wikipedia.org/wiki/Dead_key)
 * keyb ergodox-ez - [teensy](https://www.pjrc.com/teensy/loader.html) - [wally](https://github.com/zsa/wally#wally)
 * keyb ergonomy - [touchcursor homerow nav (win)](http://martin-stone.github.io/touchcursor/)
 * keyb info display - [traystatus](https://www.traystatus.com/)
