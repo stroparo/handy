@@ -44,8 +44,8 @@
 * dictionaries - [google(chrome)](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja)
 * fin - [beancount](http://furius.ca/beancount/)/[doc](https://beancount.github.io/docs/)/[repo](https://github.com/beancount/beancount)/[vscode-extension](https://marketplace.visualstudio.com/items?itemName=Lencerf.beancount) - [fava(beancount UI)](https://beancount.github.io/fava/)
 * habit - [habitctl](https://github.com/blinry/habitctl)
-* pomodoro - [marinara(chrome)](https://chrome.google.com/webstore/detail/marinara-pomodoro%C2%AE-assist/lojgmehidjdhhbmpjfamhpkpodfcodef) - [tomato-timer](https://tomato-timer.com/)
 * net remote desktop - [ru.viewer](https://www.remoteutilities.com/download/)
+* pomodoro - [marinara(chrome)](https://chrome.google.com/webstore/detail/marinara-pomodoro%C2%AE-assist/lojgmehidjdhhbmpjfamhpkpodfcodef) - [tomato-timer](https://tomato-timer.com/)
 * sound white noise - [coffitivity](https://coffitivity.com/) - [mynoise](https://mynoise.net/)/['n'co](https://mynoise.net/NoiseMachines/whiteNoiseGenerator.php)/[irish](https://mynoise.net/NoiseMachines/windSeaRainNoiseGenerator.php)
 * web video - [speed(chrome)](https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk?hl=en)
 
