@@ -14,32 +14,6 @@
 
 ---
 
-## Langue Français
-
-* [@gmail label](https://mail.google.com/mail/u/0/#label/Education%2Flang%2Ffra)
-* [bbbl](https://home.babbel.com/dashboard)
-* conjugator - [lefigaro.fr](https://leconjugueur.lefigaro.fr/french) - [reverso.net](https://conjugator.reverso.net/conjugation-french.html)
-* dct def - [reverso](https://dictionary.reverso.net/french-definition/trop) - [tfd](https://fr.thefreedictionary.com/)
-* dct from - en - es - [pt](https://www.reverso.net/text_translation.aspx?lang=EN&direction=portuguese-french)
-* dct to - en - es - [pt](http://www.reverso.net/text_translation.aspx?lang=EN&direction=french-portuguese)/[full](https://context.reverso.net/traducao/frances-portugues/d%C3%A9sol%C3%A9)
-* [phonetique](https://www.verbotonale-phonetique.com/guide-de-phonetique-du-francais/)
-* [sites recommandés](https://cps.reverso.net/users/fr/Home/RecommendedSites)
-    - [Fluency TV - Francês](https://www.youtube.com/channel/UCzEIWzQQOfA32SLaTCzS0zA)
-    - [Têtes à claques](https://www.youtube.com/channel/UCAQhhizvcHJccDd2HaKzyqA)
-
-### Comment...
-
-* [datas](https://pt.wikihow.com/Escrever-Datas-em-Franc%C3%AAs) - [dias&meses](https://pt.wikihow.com/Escrever-Datas-em-Franc%C3%AAs)
-* [elisao](http://aprendefrance.blogspot.com/p/elisao-e-ligacao.html) - [erreurs](https://cursodefrancesonline.com.br/os-27-erros-mais-frequentes-de-gramatica-em-frances/)
-* [saluer](https://francescomquentin.com/cumprimentos-em-frances)
-
-### Verbes
-
-* [aller](https://leconjugueur.lefigaro.fr/french/verb/aller.html)
-* [avoir](http://conjugator.reverso.net/conjugation-french-verb-avoir.html)
-
----
-
 ## Fin
 
 * [$](https://www.itau.com.br/) - [$mp](https://www.mercadopago.com.br/activities/balance) - [cc](https://www.itau.com.br/cartoes/)/[cfour](https://www.carrefoursolucoes.com.br/group/logada/home)/[nu](https://app.nubank.com.br/#/bills)/[va](https://www.ticket.com.br/souticket/consulta-saldo)/[vantagens](https://www.itau.com.br/cartoes/beneficios/) - [var:inpc](https://portalbrasil.net/inpc.htm)
