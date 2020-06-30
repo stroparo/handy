@@ -3,7 +3,6 @@
 * [@devlinks](https://github.com/stroparo/devlinks/blob/master/README.md#dev-links)
 * [./apps](apps.md#apps)
 * [./fsim](fsim.md)
-* [cal](https://www.calendarr.com/brasil/calendario-2020/)
 * conf - [dotfiles](https://github.com/stroparo/dotfiles#run-it) - [ds](https://github.com/stroparo/ds#installation) - [winconf](https://bitbucket.org/stroparo/winconf)
     - Custom [cz](https://github.com/stroparo/ds-cz#daily-shells-cz)/[bb](https://bitbucket.org/stroparo/ds-cz) - [cz-mc](https://github.com/stroparo/ds-cz-mc#daily-shells-mc-cz)/[bb](https://bitbucket.org/stroparo/ds-cz-mc)
     - keyb::ez - [@cz](https://configure.ergodox-ez.com/ergodox-ez/layouts/DzyNJ/latest/0) - [default](https://configure.ergodox-ez.com/ergodox-ez/layouts/default/latest/0) - [min](https://configure.ergodox-ez.com/ergodox-ez/layouts/yZ5vr/latest/0) - [revs](https://configure.ergodox-ez.com/my_layouts)
