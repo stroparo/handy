@@ -84,7 +84,6 @@ set MOBAINI=%USERPROFILE%\AppData\Roaming\MobaXterm\MobaXterm.ini
 if exist %USERPROFILE%\workspace\handy-mc\conf\moba\MobaXterm.ini set MOBAINI=%USERPROFILE%\workspace\handy-mc\conf\moba\MobaXterm.ini
 
 :: Web
-set CHROMEPATH=%PROG32%\Google\Chrome\Application\chrome.exe
 set FIREFOXPATH=%PROG%\"Mozilla Firefox"\firefox.exe
 set SKYPEPATH=%PROG32%\Skype\Phone\Skype.exe
 
@@ -107,8 +106,27 @@ tasklist | findstr ConEmu || if exist %CONEMU% start %CONEMU% -Max
 timeout 4
 cd %TMP%
 
-:: Web
-tasklist | findstr chrome || if exist %CHROMEPATH% start /max %CHROMEPATH%
+:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Web - Chrome - Custom user directory
+
+rem set PROG=C:\"Program Files"
+rem set PROG32=C:\"Program Files (x86)"
+rem if not exist %PROG32% set PROG32=%PROG%
+
+set CHROMEPATH=%PROG32%\Google\Chrome\Application\chrome.exe
+set USERCHROME=E:\appsw\chrome
+
+tasklist | findstr chrome && goto :chromerunning
+
+if not exist %USERCHROME% goto :nouserchrome
+if exist %CHROMEPATH% start /max %CHROMEPATH% --user-data-dir=%USERCHROME%
+goto :chromerunning
+
+:nouserchrome
+if exist %CHROMEPATH% start /max %CHROMEPATH%
+goto :chromerunning
+
+:chromerunning
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Env specific
