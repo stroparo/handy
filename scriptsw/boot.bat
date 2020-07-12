@@ -30,7 +30,6 @@ set EVTHOPT=%MYOPT%\everything\Everything.exe
 :: Launchy
 set LCHY=%PROG32%\Launchy\Launchy.exe
 set LCHYOPT=%MYOPT%\launchy\Launchy.exe
-tasklist | findstr Launchy || if exist %LCHYOPT% (start %LCHYOPT%) else (if exist %LCHY% start %LCHY%)
 
 :: Macros
 set AHKPROG=%MYOPT%\autohotkey\AutoHotkeyU64.exe
@@ -90,19 +89,23 @@ set SKYPEPATH=%PROG32%\Skype\Phone\Skype.exe
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Env agnostic stuff
 
+:: Launchy launcher
+rem tasklist | findstr Launchy || if exist %LCHYOPT% (start %LCHYOPT%) else (if exist %LCHY% start %LCHY%)
+
 :: Filesystem indexing - Everything app
-tasklist | findstr "Everything.*Console" || if exist %EVTHOPT% (start %EVTHOPT%) else (if exist %EVTH% start %EVTH%)
+rem tasklist | findstr "Everything.*Console" || if exist %EVTHOPT% (start %EVTHOPT%) else (if exist %EVTH% start %EVTH%)
 
 :: Other macros
 set AHKWPR=%HANDYSDIR%\macros\wpr.ahk
 if exist %AHKPROG% if exist %AHKWPR% start %AHKPROG% %AHKWPR%
 
 :: Sec
-tasklist | findstr KeePassXC || if exist %MYKEEPASS% start /max %MYKEEPASS%
+rem tasklist | findstr KeePassXC || if exist %MYKEEPASS% start /max %MYKEEPASS%
 
 :: Terminal - ConEmu
-cd %WSDIR%
-tasklist | findstr ConEmu || if exist %CONEMU% start %CONEMU% -Max
+rem cd %WSDIR%
+rem tasklist | findstr ConEmu || if exist %CONEMU% start %CONEMU% -Max
+
 timeout 4
 cd %TMP%
 
@@ -153,7 +156,7 @@ if exist %AHKUK% start %AHKPROG% %AHKUK%
 :: Calls:
 
 :: Portable Apps
-tasklist | findstr PortableApps || if exist %PORTABLEPARENT%\PortableApps (start %PORTABLEPARENT%\Start.exe)
+rem tasklist | findstr PortableApps || if exist %PORTABLEPARENT%\PortableApps (start %PORTABLEPARENT%\Start.exe)
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
