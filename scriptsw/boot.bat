@@ -91,7 +91,7 @@ set SKYPEPATH=%PROG32%\Skype\Phone\Skype.exe
 :: Env agnostic stuff
 
 :: Launchy launcher
-tasklist | findstr Launchy || if exist %LCHYOPT% (start %LCHYOPT%) else (if exist %LCHY% start %LCHY%)
+rem tasklist | findstr Launchy || if exist %LCHYOPT% (start %LCHYOPT%) else (if exist %LCHY% start %LCHY%)
 
 :: Filesystem indexing - Everything app
 tasklist | findstr "Everything.*Console" || if exist %EVTHOPT% (start %EVTHOPT%) else (if exist %EVTH% start %EVTH%)
