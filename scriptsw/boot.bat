@@ -1,4 +1,5 @@
 @echo off
+@echo off
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Globals
@@ -151,7 +152,7 @@ if exist %USERPROFILE%\PortableApps set PORTABLEPARENT=%USERPROFILE%
 if exist %DROPBOXHOME%\PortableApps set PORTABLEPARENT=%DROPBOXHOME%
 if exist Z:\PortableApps set PORTABLEPARENT=Z:
 
-set AHKUK=%DROPBOXHOME%\sw-4windows\UltimateKEYS.ahk
+set AHKUK=%DROPBOXHOME%\pkgs-4windows\UltimateKEYS.ahk
 if exist %AHKUK% start %AHKPROG% %AHKUK%
 
 :: Calls:
