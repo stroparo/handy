@@ -3,6 +3,9 @@
 :: https://www.pcerror-fix.com/windows-10-services-to-disable-for-gaming
 :: https://www.reginout.com/help-center/turn-off-windows-10-services-get-unfair-speed-boost/
 
+:: Disable CPU-hogging memory (RAM) compression:
+powershell "Disable-MMAgent -mc"
+
 :: Geoloc
 sc config lfsvc start= disabled
 sc stop   lfsvc
