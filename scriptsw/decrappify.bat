@@ -41,9 +41,9 @@ sc stop   fhsvc
 sc config WerSvc start= disabled
 sc stop   WerSvc
 
-:: Windos Media Player
-sc config WMPNetworkSvc start= disabled
-sc stop   WMPNetworkSvc
+:: Windos Media Player => disabled to keep screen sharing to the TV
+rem sc config WMPNetworkSvc start= disabled
+rem sc stop   WMPNetworkSvc
 
 :: Windows Search
 sc config WSearch start= disabled
