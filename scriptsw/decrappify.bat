@@ -1,3 +1,5 @@
+:: RUN THIS AS ADMINISTRATOR
+
 :: Sources:
 :: https://www.minitool.com/news/windows-10-services-to-disable.html
 :: https://www.pcerror-fix.com/windows-10-services-to-disable-for-gaming
