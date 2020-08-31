@@ -68,6 +68,18 @@ return
 ;#Include %A_ScriptDir%\filename.ahk
 
 ; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input - CV / Resume
+
+::cpb::Curitiba, PR, Brazil
+::cvxp::Experience
+::cved::Education
+::cvco::Courses
+::cvce::Certificates
+::cvpr::Side Projects (Open Source)
+::jjdev::Software Developer
+::jjdo::DevOps Engineer
+
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Plugin inspection
 
 ::drget::chrome.storage.sync.get(null, (settings) => console.log(JSON.stringify(settings, null, 4)));
