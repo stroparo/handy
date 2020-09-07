@@ -1,0 +1,19 @@
+{
+    "control": [
+        { "VTOY_DEFAULT_MENU_MODE": "1" },
+        { "VTOY_FILT_DOT_UNDERSCORE_FILE": "1" }
+        { "VTOY_DEFAULT_SEARCH_ROOT": "/iso" },
+        { "VTOY_MENU_TIMEOUT": "10" },
+        { "VTOY_DEFAULT_IMAGE": "/iso/clonezilla-live-20200703-focal-amd64.iso" }
+    ],
+
+    "theme": {
+        "file": "/ventoy/theme/deadpool/theme.txt",
+        "gfxmode": "1920x1080",
+        "display_mode": "GUI",
+        "fonts":[
+          "/ventoy/theme/deadpool/fixedsys-regular-32.pf2",
+          "/ventoy/theme/sleek/fixedsys-regular-32.pf2"
+        ]
+    }
+}
