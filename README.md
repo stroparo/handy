@@ -16,3 +16,10 @@ if ! grep -q ${RECIPE_SUFFIX:-cz} ~/.dsplugins ; then
 fi
 
 ```
+
+#### On Windows
+
+If handys repo is present call:
+```
+Z:\handys\provision-cz-win.bat
+```
