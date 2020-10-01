@@ -92,7 +92,7 @@ set SKYPEPATH=%PROG32%\Skype\Phone\Skype.exe
 :: Env agnostic stuff
 
 :: Launchy launcher
-rem tasklist | findstr Launchy || if exist %LCHYOPT% (start %LCHYOPT%) else (if exist %LCHY% start %LCHY%)
+tasklist | findstr Launchy || if exist %LCHYOPT% (start %LCHYOPT%) else (if exist %LCHY% start %LCHY%)
 
 :: Filesystem indexing - Everything app
 tasklist | findstr "Everything.*Console" || if exist %EVTHOPT% (start %EVTHOPT%) else (if exist %EVTH% start %EVTH%)
@@ -102,11 +102,11 @@ set AHKWPR=%HANDYSDIR%\macros\wpr.ahk
 if exist %AHKPROG% if exist %AHKWPR% start %AHKPROG% %AHKWPR%
 
 :: Sec
-rem tasklist | findstr KeePassXC || if exist %MYKEEPASS% start /max %MYKEEPASS%
+tasklist | findstr KeePassXC || if exist %MYKEEPASS% start /max %MYKEEPASS%
 
 :: Terminal - ConEmu
 rem cd %WSDIR%
-rem tasklist | findstr ConEmu || if exist %CONEMU% start %CONEMU% -Max
+tasklist | findstr ConEmu || if exist %CONEMU% start %CONEMU% -Max
 
 timeout 4
 cd %TMP%
@@ -119,7 +119,7 @@ rem set PROG32=C:\"Program Files (x86)"
 rem if not exist %PROG32% set PROG32=%PROG%
 
 set CHROMEPATH=%PROG32%\Google\Chrome\Application\chrome.exe
-set USERCHROME=E:\appsw\chrome
+set USERCHROME=Z:\appsw\chrome
 
 tasklist | findstr chrome && goto :chromerunning
 
