@@ -118,7 +118,7 @@ rem set PROG=C:\"Program Files"
 rem set PROG32=C:\"Program Files (x86)"
 rem if not exist %PROG32% set PROG32=%PROG%
 
-set CHROMEPATH=%PROG32%\Google\Chrome\Application\chrome.exe
+set CHROMEPATH=%PROG%\Google\Chrome\Application\chrome.exe
 set USERCHROME=Z:\appsw\chrome
 
 tasklist | findstr chrome && goto :chromerunning
