@@ -43,8 +43,8 @@ sc config fhsvc start= disabled
 sc stop   fhsvc
 
 :: Windows Error Reporting
-sc config WerSvc start= disabled
-sc stop   WerSvc
+rem sc config WerSvc start= disabled
+rem sc stop   WerSvc
 
 :: Windos Media Player => disabled to keep screen sharing to the TV
 rem sc config WMPNetworkSvc start= disabled
