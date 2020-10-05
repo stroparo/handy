@@ -1,13 +1,16 @@
 @echo off
 @echo off
 
+set PROG=C:\"Program Files"
+set PROG32=C:\"Program Files (x86)"
+if not exist %PROG32% set PROG32=%PROG%
+
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Globals
 
-set MYOPT=C:\opt
-if exist E:\opt set MYOPT=E:\opt
-if exist Z:\opt set MYOPT=Z:\opt
+if exist K:\opt set MYOPT=K:\opt
 if exist %USERPROFILE%\opt set MYOPT=%USERPROFILE%\opt
+if exist Z:\opt set MYOPT=Z:\opt
 
 :: Working dirs - workspace
 if exist Z:\workspace set WSDIR=Z:\workspace
@@ -17,10 +20,6 @@ if exist %USERPROFILE%\workspace set WSDIR=%USERPROFILE%\workspace
 set HANDYDIR=Z:\handy
 set HANDYSDIR=Z:\handys
 if exist %WSDIR%\handy set HANDYDIR=%WSDIR%\handy
-
-set PROG=C:\"Program Files"
-set PROG32=C:\"Program Files (x86)"
-if not exist %PROG32% set PROG32=%PROG%
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Globals - Applications
@@ -119,12 +118,12 @@ rem set PROG32=C:\"Program Files (x86)"
 rem if not exist %PROG32% set PROG32=%PROG%
 
 set CHROMEPATH=%PROG%\Google\Chrome\Application\chrome.exe
-set USERCHROME=Z:\appsw\chrome
+set CHROMEUSERDIR=Z:\appsw\chrome--user-data-dir
 
 tasklist | findstr chrome && goto :chromerunning
 
-if not exist %USERCHROME% goto :nouserchrome
-if exist %CHROMEPATH% start /max %CHROMEPATH% --user-data-dir=%USERCHROME%
+if not exist %CHROMEUSERDIR% goto :nouserchrome
+if exist %CHROMEPATH% start /max %CHROMEPATH% --user-data-dir=%CHROMEUSERDIR%
 goto :chromerunning
 
 :nouserchrome
@@ -139,26 +138,18 @@ goto :chromerunning
 :: Globals:
 
 :: DROPBOXHOME
-if exist S:\Dropbox set DROPBOXHOME=S:\Dropbox
-if exist D:\Dropbox set DROPBOXHOME=D:\Dropbox
-if exist E:\Dropbox set DROPBOXHOME=E:\Dropbox
-if exist Z:\Dropbox set DROPBOXHOME=Z:\Dropbox
+if exist K:\Dropbox set DROPBOXHOME=K:\Dropbox
 if exist %USERPROFILE%\Dropbox set DROPBOXHOME=%USERPROFILE%\Dropbox
+if exist Z:\Dropbox set DROPBOXHOME=Z:\Dropbox
 
-set PORTABLEPARENT=S:
-if exist D:\PortableApps set PORTABLEPARENT=D:
-if exist E:\PortableApps set PORTABLEPARENT=E:
-if exist %USERPROFILE%\PortableApps set PORTABLEPARENT=%USERPROFILE%
 if exist %DROPBOXHOME%\PortableApps set PORTABLEPARENT=%DROPBOXHOME%
+if exist %USERPROFILE%\PortableApps set PORTABLEPARENT=%USERPROFILE%
 if exist Z:\PortableApps set PORTABLEPARENT=Z:
-
-set AHKUK=%DROPBOXHOME%\pkgs-4windows\UltimateKEYS.ahk
-if exist %AHKUK% start %AHKPROG% %AHKUK%
 
 :: Calls:
 
 :: Portable Apps
-rem tasklist | findstr PortableApps || if exist %PORTABLEPARENT%\PortableApps (start %PORTABLEPARENT%\Start.exe)
+tasklist | findstr PortableApps || if exist %PORTABLEPARENT%\PortableApps (start %PORTABLEPARENT%\Start.exe)
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
