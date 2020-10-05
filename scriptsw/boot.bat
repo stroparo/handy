@@ -8,13 +8,13 @@ if not exist %PROG32% set PROG32=%PROG%
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Globals
 
-if exist K:\opt set MYOPT=K:\opt
 if exist %USERPROFILE%\opt set MYOPT=%USERPROFILE%\opt
+if exist K:\opt set MYOPT=K:\opt
 if exist Z:\opt set MYOPT=Z:\opt
 
 :: Working dirs - workspace
-if exist Z:\workspace set WSDIR=Z:\workspace
 if exist %USERPROFILE%\workspace set WSDIR=%USERPROFILE%\workspace
+if exist Z:\workspace set WSDIR=Z:\workspace
 
 :: Working dirs - workspace - handy dir
 set HANDYDIR=Z:\handy
@@ -81,7 +81,7 @@ set CONEMU32=%MYOPT%\conemu\ConEmu.exe
 if not exist C:\"Program Files (x86)" set CONEMU=%CONEMU32%
 set MOBA=%PROG32%\Mobatek\"MobaXterm Professional Edition"\MobaXterm.exe
 set MOBAINI=%USERPROFILE%\AppData\Roaming\MobaXterm\MobaXterm.ini
-if exist %USERPROFILE%\workspace\handy-mc\conf\moba\MobaXterm.ini set MOBAINI=%USERPROFILE%\workspace\handy-mc\conf\moba\MobaXterm.ini
+if exist %WSDIR%\handy-mc\conf\moba\MobaXterm.ini set MOBAINI=%WSDIR%\handy-mc\conf\moba\MobaXterm.ini
 
 :: Web
 set FIREFOXPATH=%PROG%\"Mozilla Firefox"\firefox.exe
@@ -138,12 +138,12 @@ goto :chromerunning
 :: Globals:
 
 :: DROPBOXHOME
-if exist K:\Dropbox set DROPBOXHOME=K:\Dropbox
 if exist %USERPROFILE%\Dropbox set DROPBOXHOME=%USERPROFILE%\Dropbox
+if exist K:\Dropbox set DROPBOXHOME=K:\Dropbox
 if exist Z:\Dropbox set DROPBOXHOME=Z:\Dropbox
 
-if exist %DROPBOXHOME%\PortableApps set PORTABLEPARENT=%DROPBOXHOME%
 if exist %USERPROFILE%\PortableApps set PORTABLEPARENT=%USERPROFILE%
+if exist %DROPBOXHOME%\PortableApps set PORTABLEPARENT=%DROPBOXHOME%
 if exist Z:\PortableApps set PORTABLEPARENT=Z:
 
 :: Calls:
