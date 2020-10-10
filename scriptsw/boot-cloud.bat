@@ -25,5 +25,5 @@ tasklist | findstr Evernote.exe || if exist %EVNTPATH% start /max %EVNTPATH%
 :: Web - Cloud
 tasklist | findstr Dropbox.exe || if exist %DROPBOXPATH% start %DROPBOXPATH%
 tasklist | findstr googledrive || if exist %GDRIVEPATH% start %GDRIVEPATH%
-rem tasklist | findstr OneDrive.exe || if exist %ONEDRIVEPATH% start %ONEDRIVEPATH%
+tasklist | findstr OneDrive.exe || if exist %ONEDRIVEPATH% start %ONEDRIVEPATH%
 tasklist | findstr pCloud.exe || if exist %PCLOUDPATH% start %PCLOUDPATH%
