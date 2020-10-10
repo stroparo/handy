@@ -1,0 +1,12 @@
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\magnet]
+@="URL:magnet Protocol"
+"URL Protocol"=""
+
+[HKEY_CLASSES_ROOT\magnet\shell]
+
+[HKEY_CLASSES_ROOT\magnet\shell\open]
+
+[HKEY_CLASSES_ROOT\magnet\shell\open\command]
+@="\"C:\\Program Files\\qbittorrent\\qbittorrent.exe\" \"%1\""

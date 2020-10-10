@@ -1,0 +1,10 @@
+Windows Registry Editor Version 5.00
+[hkey_current_user\software\microsoft\windows\currentversion\explorer\advanced]
+;hide extensions for known file types [uncheck]
+"hidefileext"=dword:00000000
+;hide empty drives [check]
+"hidedriveswithnomedia"=dword:00000001
+;show hidden files, folders, and drives [uncheck]
+"hidden"=dword:00000000
+;show protected operating system files (recommended) [uncheck]
+"showsuperhidden"=dword:00000000

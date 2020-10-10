@@ -1,0 +1,4 @@
+Windows Registry Editor Version 5.00
+[hkey_current_user\software\microsoft\windows\currentversion\explorer\advanced]
+;use check boxes to select items [check]
+"autocheckselect"=dword:00000001

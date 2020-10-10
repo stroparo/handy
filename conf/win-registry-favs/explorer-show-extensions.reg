@@ -1,0 +1,4 @@
+Windows Registry Editor Version 5.00
+[hkey_current_user\software\microsoft\windows\currentversion\explorer\advanced]
+;hide extensions for known file types [uncheck]
+"hidefileext"=dword:00000000
