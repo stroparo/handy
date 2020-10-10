@@ -83,17 +83,18 @@ call %SETUPENV%
 
 if exist "%LocalAppData%\MICROSOFT\Windows\Fonts\DROID SANS MONO DOTTED FOR POWERLINE.TTF" goto :okfonts
 echo Installing fonts...
-%HANDYDIR%\fonts\fonts-install.ps1
+powershell -nologo -ExecutionPolicy Bypass -File %HANDYDIR%\fonts\fonts-install.ps1
 :okfonts
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: TODO import .reg files
 
 explorer "%HANDYDIR%\conf\win-registry-favs"
+explorer "%HANDYDIR%\scriptsw"
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo Execute this in Bash (e.g. in Git for Windows):
-echo if cd /z/workspace/handy ; then source ./runr-provision-${RECIPE_SUFFIX:-cz}.sh ; fi
+echo if cd $(cygpath '%HANDYDIR%') ; then source ./runr-provision-${RECIPE_SUFFIX:-cz}.sh ; fi
 echo
 echo After that, import %USERPROFILE%\Desktop\maint\bootpre.reg
 echo
