@@ -117,20 +117,19 @@ rem set PROG=C:\"Program Files"
 rem set PROG32=C:\"Program Files (x86)"
 rem if not exist %PROG32% set PROG32=%PROG%
 
-set CHROMEPATH=%PROG%\Google\Chrome\Application\chrome.exe
-set CHROMEUSERDIR=Z:\appsw\chrome--user-data-dir
+set BROWSEREXPR=brave
+rem set BROWSEREXPR=chrome
 
-tasklist | findstr chrome && goto :chromerunning
 
-if not exist %CHROMEUSERDIR% goto :nouserchrome
-if exist %CHROMEPATH% start /max %CHROMEPATH% --user-data-dir=%CHROMEUSERDIR%
-goto :chromerunning
+set BROWSERPATH=%PROG%\BraveSoftware\Brave-Browser\Application\brave.exe
+rem set BROWSERPATH=%PROG%\Google\Chrome\Application\chrome.exe
 
-:nouserchrome
-if exist %CHROMEPATH% start /max %CHROMEPATH%
-goto :chromerunning
+tasklist | findstr %BROWSEREXPR% && goto :browserrunning
+rem tasklist | findstr chrome && goto :browserrunning
 
-:chromerunning
+if exist %BROWSERPATH% start /max %BROWSERPATH%
+
+:browserrunning
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Env specific
