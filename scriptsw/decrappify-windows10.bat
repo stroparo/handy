@@ -59,16 +59,14 @@ sc config Netlogon start= disabled
 sc stop   Netlogon
 
 :: XBOX
-sc config XblAuthManager start= disabled
-sc stop   XblAuthManager
-sc config XblGameSave start= disabled
-sc stop   XblGameSave
-sc config XboxNetApiSvc start= disabled
-sc stop   XboxNetApiSvc
+rem sc config XblAuthManager start= disabled
+rem sc stop   XblAuthManager
+rem sc config XblGameSave start= disabled
+rem sc stop   XblGameSave
+rem sc config XboxNetApiSvc start= disabled
+rem sc stop   XboxNetApiSvc
 
 :: Miscellaneous Junk
-sc config DiagTrack start= disabled
-sc stop   DiagTrack
 sc config Fax start= disabled
 sc stop   Fax
 sc config RetailDemo start= disabled
