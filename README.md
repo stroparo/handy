@@ -9,14 +9,12 @@
 If on Windows then ignore the instructions below and just call ```provision-cz-win.bat```.
 
 IMPORTANT:
-DO NOT REENGINEER the snippet below as it already sources the script containing a more ellaborate "calling logic":
+DO NOT REENGINEER any snippet below as it already sources the script containing a more ellaborate "calling logic".
 
 ```
-if ! grep -q ${RECIPE_SUFFIX:-cz} ~/.dsplugins ; then
-  cd ; git clone --depth 1 https://github.com/stroparo/handy.git .handy
-  cd .handy
-  source ./runr-provision-${RECIPE_SUFFIX:-cz}.sh
-  rm -rf ~/.handy
-fi
+eval "$(wget 'https://raw.githubusercontent.com/stroparo/handy/master/runr-provision-cz.sh')"
+```
 
+```
+eval "$(wget 'https://raw.githubusercontent.com/stroparo/handy/master/runr-provision-stroparo.sh')"
 ```
