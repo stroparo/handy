@@ -6,7 +6,10 @@
 
 ## Provisioning
 
-DO NOT REENGINEER this, as the sourced file in this snippet already has only "calling logic":
+If on Windows then ignore the instructions below and just call ```provision-cz-win.bat```.
+
+IMPORTANT:
+DO NOT REENGINEER the snippet below as it already sources the script containing a more ellaborate "calling logic":
 
 ```
 if ! grep -q ${RECIPE_SUFFIX:-cz} ~/.dsplugins ; then
@@ -16,11 +19,4 @@ if ! grep -q ${RECIPE_SUFFIX:-cz} ~/.dsplugins ; then
   rm -rf ~/.handy
 fi
 
-```
-
-#### On Windows
-
-If handys repo is present call:
-```
-Z:\handys\provision-cz-win.bat
 ```
