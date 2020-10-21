@@ -12,9 +12,9 @@ IMPORTANT:
 DO NOT REENGINEER any snippet below as it already sources the script containing a more ellaborate "calling logic".
 
 ```
-eval "$(wget 'https://raw.githubusercontent.com/stroparo/handy/master/runr-provision-cz.sh')"
+eval "$(curl -fsS 'https://raw.githubusercontent.com/stroparo/handy/master/runr-provision-cz.sh')"
 ```
 
 ```
-eval "$(wget 'https://raw.githubusercontent.com/stroparo/handy/master/runr-provision-stroparo.sh')"
+eval "$(curl -fsS wget 'https://raw.githubusercontent.com/stroparo/handy/master/runr-provision-stroparo.sh')"
 ```
