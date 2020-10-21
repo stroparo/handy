@@ -16,5 +16,5 @@ eval "$(curl -fsS 'https://raw.githubusercontent.com/stroparo/handy/master/runr-
 ```
 
 ```
-eval "$(curl -fsS wget 'https://raw.githubusercontent.com/stroparo/handy/master/runr-provision-stroparo.sh')"
+eval "$(curl -fsS 'https://raw.githubusercontent.com/stroparo/handy/master/runr-provision-stroparo.sh')"
 ```
