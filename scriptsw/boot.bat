@@ -84,6 +84,8 @@ set MOBAINI=%USERPROFILE%\AppData\Roaming\MobaXterm\MobaXterm.ini
 if exist %WSDIR%\handy-mc\conf\moba\MobaXterm.ini set MOBAINI=%WSDIR%\handy-mc\conf\moba\MobaXterm.ini
 
 :: Web
+set BRAVEPATH=%PROG%\BraveSoftware\Brave-Browser\Application\brave.exe
+set CHROMEPATH=%PROG%\Google\Chrome\Application\chrome.exe
 set FIREFOXPATH=%PROG%\"Mozilla Firefox"\firefox.exe
 set SKYPEPATH=%PROG32%\Skype\Phone\Skype.exe
 
@@ -94,18 +96,18 @@ set SKYPEPATH=%PROG32%\Skype\Phone\Skype.exe
 tasklist | findstr Launchy || if exist %LCHYOPT% (start %LCHYOPT%) else (if exist %LCHY% start %LCHY%)
 
 :: Filesystem indexing - Everything app
-tasklist | findstr "Everything.*Console" || if exist %EVTHOPT% (start %EVTHOPT%) else (if exist %EVTH% start %EVTH%)
+rem tasklist | findstr "Everything.*Console" || if exist %EVTHOPT% (start %EVTHOPT%) else (if exist %EVTH% start %EVTH%)
 
 :: Other macros
 set AHKWPR=%HANDYSDIR%\macros\wpr.ahk
 if exist %AHKPROG% if exist %AHKWPR% start %AHKPROG% %AHKWPR%
 
 :: Sec
-tasklist | findstr KeePassXC || if exist %MYKEEPASS% start /max %MYKEEPASS%
+rem tasklist | findstr KeePassXC || if exist %MYKEEPASS% start /max %MYKEEPASS%
 
 :: Terminal - ConEmu
 rem cd %WSDIR%
-tasklist | findstr ConEmu || if exist %CONEMU% start %CONEMU% -Max
+rem tasklist | findstr ConEmu || if exist %CONEMU% start %CONEMU% -Max
 
 timeout 4
 cd %TMP%
@@ -117,18 +119,16 @@ rem set PROG=C:\"Program Files"
 rem set PROG32=C:\"Program Files (x86)"
 rem if not exist %PROG32% set PROG32=%PROG%
 
-set BROWSEREXPR=brave
+rem set BROWSEREXPR=brave
 rem set BROWSEREXPR=chrome
+set BROWSEREXPR=firefox
 
-
-set BROWSERPATH=%PROG%\BraveSoftware\Brave-Browser\Application\brave.exe
-rem set BROWSERPATH=%PROG%\Google\Chrome\Application\chrome.exe
+rem set BROWSERPATH=%BRAVEPATH%
+rem set BROWSERPATH=%CHROMEPATH%
+set BROWSERPATH=%FIREFOXPATH%
 
 tasklist | findstr %BROWSEREXPR% && goto :browserrunning
-rem tasklist | findstr chrome && goto :browserrunning
-
 if exist %BROWSERPATH% start /max %BROWSERPATH%
-
 :browserrunning
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
