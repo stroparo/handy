@@ -10,12 +10,13 @@ if exist D:\%CRYPT_FILE_BASENAME% set DATA_PATH=D:\
 if exist F:\%CRYPT_FILE_BASENAME% set DATA_PATH=F:\
 if exist K:\%CRYPT_FILE_BASENAME% set DATA_PATH=K:\
 
-set PKGWIN=S:\pkgs-4windows
+set PKGWIN=S:\cs\pkgs-4windows
 if exist D:\pkgs-4windows set PKGWIN=D:\pkgs-4windows
 if exist E:\pkgs-4windows set PKGWIN=E:\pkgs-4windows
 if exist F:\pkgs-4windows set PKGWIN=F:\pkgs-4windows
 if exist L:\pkgs-4windows set PKGWIN=L:\pkgs-4windows
 if exist Z:\OneDrive\pkgs-4windows set PKGWIN=Z:\OneDrive\pkgs-4windows
+if exist C:\Users\user\OneDrive\pkgs-4windows set PKGWIN=C:\Users\user\OneDrive\pkgs-4windows
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Add maint dir to the desktop
