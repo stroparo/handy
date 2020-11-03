@@ -137,12 +137,12 @@ if exist %BROWSERPATH% start /max %BROWSERPATH%
 :: Globals:
 
 :: DROPBOXHOME
-if exist %USERPROFILE%\Dropbox set DROPBOXHOME=%USERPROFILE%\Dropbox
 if exist K:\Dropbox set DROPBOXHOME=K:\Dropbox
+if exist %USERPROFILE%\Dropbox set DROPBOXHOME=%USERPROFILE%\Dropbox
 if exist Z:\Dropbox set DROPBOXHOME=Z:\Dropbox
 
-if exist %USERPROFILE%\PortableApps set PORTABLEPARENT=%USERPROFILE%
 if exist %DROPBOXHOME%\PortableApps set PORTABLEPARENT=%DROPBOXHOME%
+if exist %USERPROFILE%\PortableApps set PORTABLEPARENT=%USERPROFILE%
 if exist Z:\PortableApps set PORTABLEPARENT=Z:
 
 :: Calls:
