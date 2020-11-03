@@ -103,7 +103,7 @@ set AHKWPR=%HANDYSDIR%\macros\wpr.ahk
 if exist %AHKPROG% if exist %AHKWPR% start %AHKPROG% %AHKWPR%
 
 :: Sec
-rem tasklist | findstr KeePassXC || if exist %MYKEEPASS% start /max %MYKEEPASS%
+tasklist | findstr KeePassXC || if exist %MYKEEPASS% start /max %MYKEEPASS%
 
 :: Terminal - ConEmu
 rem cd %WSDIR%

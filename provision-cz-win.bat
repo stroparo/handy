@@ -4,10 +4,11 @@
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Globals local script
 
+set CRYPT_FILE_BASENAME=z.tc
 set DATA_PATH=E:
-if exist D:\z.hc set DATA_PATH=D:\
-if exist F:\z.hc set DATA_PATH=F:\
-if exist K:\z.hc set DATA_PATH=K:\
+if exist D:\%CRYPT_FILE_BASENAME% set DATA_PATH=D:\
+if exist F:\%CRYPT_FILE_BASENAME% set DATA_PATH=F:\
+if exist K:\%CRYPT_FILE_BASENAME% set DATA_PATH=K:\
 
 set PKGWIN=S:\pkgs-4windows
 if exist D:\pkgs-4windows set PKGWIN=D:\pkgs-4windows
@@ -28,7 +29,9 @@ copy /Y %PKGWIN%\maint\* %USERPROFILE%\Desktop\maint\
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo Installing packages in %PKGWIN% ...
 
+if exist "C:\Program Files\TrueCrypt\TrueCrypt.exe" goto :okprogs
 rem if exist "C:\Program Files\VeraCrypt\VeraCrypt.exe" goto :okprogs
+
 %PKGWIN%\disk-defrag-setup.exe
 %PKGWIN%\GPU-Z.2.21.0.exe
 %PKGWIN%\duplicate-file-finder-setup.exe
@@ -37,11 +40,14 @@ rem if exist "C:\Program Files\VeraCrypt\VeraCrypt.exe" goto :okprogs
 %PKGWIN%\notepad2x64.exe
 %PKGWIN%\pathcopy.exe
 %PKGWIN%\s3browser-9-1-3.exe
+%PKGWIN%\truecrypt-7.1a-setup.exe
 %PKGWIN%\veracrypt-1.24-Update7-setup.exe
 %PKGWIN%\maint\ninite-base-desktop-apps.exe
 %PKGWIN%\maint\ninite-base-internet-apps.exe
 %PKGWIN%\maint\ninite-steam.exe
+
 :okprogs
+
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Drivers
@@ -60,7 +66,8 @@ if exist "%PROGRAMDATA%\NVIDIA Corporation" goto :oknvidia
 :begincrypt
 if exist Z:\workspace goto :okcrypt
 echo Waiting for Z:\ to be mounted...
-"C:\Program Files\VeraCrypt\VeraCrypt.exe" /v "%DATA_PATH%\z.hc" /l z /q /e
+"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%DATA_PATH%\%CRYPT_FILE_BASENAME%" /l z /q /e
+rem "C:\Program Files\VeraCrypt\VeraCrypt.exe" /tc /v "%DATA_PATH%\%CRYPT_FILE_BASENAME%" /l z /q /e
 timeout 1
 goto :begincrypt
 :okcrypt
