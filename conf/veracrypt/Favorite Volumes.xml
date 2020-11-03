@@ -4,6 +4,8 @@
     <!-- <volume mountpoint="Z:\" label="Z-at-C.Users.user" mountOnLogOn="1">C:\Users\user\z.hc</volume> -->
     <!-- <volume mountpoint="Z:\" label="Z-at-D" mountOnLogOn="1" mountOnArrival="1">D:\z.hc</volume> -->
     <!-- <volume mountpoint="Z:\" label="Z-at-E" mountOnLogOn="1" mountOnArrival="1">E:\z.hc</volume> -->
+    <volume mountpoint="P:\" label="P-photos" mountOnLogOn="1" mountOnArrival="1">K:\p.tc</volume>
+    <volume mountpoint="Q:\" label="P-photos-at-S-mount-at-Q" mountOnLogOn="1" mountOnArrival="1">S:\p.tc</volume>
     <volume mountpoint="Z:\" label="Z-at-K" mountOnLogOn="1" mountOnArrival="1">K:\z.hc</volume>
     <!-- <volume mountpoint="Z:\" label="Z-at-S">S:\z.hc</volume> -->
     <volume mountpoint="Y:\" label="Z-at-S-mount-at-Y">S:\z.hc</volume>
