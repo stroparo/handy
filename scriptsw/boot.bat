@@ -96,7 +96,7 @@ set SKYPEPATH=%PROG32%\Skype\Phone\Skype.exe
 tasklist | findstr Launchy || if exist %LCHYOPT% (start %LCHYOPT%) else (if exist %LCHY% start %LCHY%)
 
 :: Filesystem indexing - Everything app
-rem tasklist | findstr "Everything.*Console" || if exist %EVTHOPT% (start %EVTHOPT%) else (if exist %EVTH% start %EVTH%)
+tasklist | findstr "Everything.*Console" || if exist %EVTHOPT% (start %EVTHOPT%) else (if exist %EVTH% start %EVTH%)
 
 :: Other macros
 set AHKWPR=%HANDYSDIR%\macros\wpr.ahk
