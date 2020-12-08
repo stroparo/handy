@@ -27,7 +27,6 @@ set GPATH=%GPATH%;%MYOPT%\git\bin
 set GPATH=%GPATH%;%MYOPT%\git\cmd
 set GPATH=%GPATH%;%MYOPT%\junction
 set GPATH=%GPATH%;%MYOPT%\md5deep
-set GPATH=%GPATH%;%MYOPT%\nircmd
 set GPATH=%GPATH%;%MYOPT%\nvm
 rem set GPATH=%GPATH%;%MYOPT%\OpenSSH-Win64
 set GPATH=%GPATH%;%MYOPT%\pstools
@@ -35,7 +34,7 @@ set GPATH=%GPATH%;%MYOPT%\sdelete
 set GPATH=%GPATH%;%MYOPT%\sqlite
 set GPATH=%GPATH%;%MYOPT%\subl
 set GPATH=%GPATH%;%MYOPT%\apache-tomcat-7.0.99\bin
-set GPATH=%GPATH%;%MYOPT%\eclipse
+rem set GPATH=%GPATH%;%MYOPT%\eclipse
 set GPATH=%GPATH%;%MYOPT%\jdk1.8.0_251\app\bin
 set GPATH=%GPATH%;%MYOPT%\jdk1.8.0_251\app\jre\bin
 set GPATH=%GPATH%;%MYOPT%\maven\bin
@@ -52,7 +51,7 @@ SETX PATH "%GPATH%"
 if not exist %USERPROFILE%\data %JUNCTION_PATH% %USERPROFILE%\data K:\
 
 :: AppData:
-if not exist %AppData%\VSCodium %JUNCTION_PATH% %AppData%\VSCodium Z:\appsw\AppData.Roaming\VSCodium
+if not exist %AppData%\VSCode %JUNCTION_PATH% %AppData%\VSCode Z:\appsw\AppData.Roaming\VSCode
 if not exist %LocalAppData%\Discord %JUNCTION_PATH% %LocalAppData%\Discord Z:\appsw\AppData.Local\Discord
 if not exist %LocalAppData%\Dropbox %JUNCTION_PATH% %LocalAppData%\Dropbox Z:\appsw\AppData.Local\Dropbox
 if not exist %LocalAppData%\KeePassXC %JUNCTION_PATH% %LocalAppData%\KeePassXC Z:\appsw\AppData.Local\KeePassXC
@@ -64,7 +63,7 @@ if not exist %LocalAppData%\Google\Drive %JUNCTION_PATH% %LocalAppData%\Google\D
 :: Etcetera:
 if not exist %LocalAppData%\Microsoft\Edge %JUNCTION_PATH% %LocalAppData%\Microsoft\Edge Z:\appsw\AppData.Local\Microsoft\Edge
 :: Workspacee (DEV):
-if not exist %USERPROFILE%\workspace %JUNCTION_PATH% %USERPROFILE%\workspace %DEV%
+rem if not exist %USERPROFILE%\workspace %JUNCTION_PATH% %USERPROFILE%\workspace %DEV%
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 

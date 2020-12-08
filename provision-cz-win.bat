@@ -15,8 +15,9 @@ if exist D:\pkgs-4windows set PKGWIN=D:\pkgs-4windows
 if exist E:\pkgs-4windows set PKGWIN=E:\pkgs-4windows
 if exist F:\pkgs-4windows set PKGWIN=F:\pkgs-4windows
 if exist L:\pkgs-4windows set PKGWIN=L:\pkgs-4windows
-if exist Z:\OneDrive\pkgs-4windows set PKGWIN=Z:\OneDrive\pkgs-4windows
+if exist K:\OneDrive\pkgs-4windows set PKGWIN=K:\OneDrive\pkgs-4windows
 if exist C:\Users\user\OneDrive\pkgs-4windows set PKGWIN=C:\Users\user\OneDrive\pkgs-4windows
+if exist Z:\OneDrive\pkgs-4windows set PKGWIN=Z:\OneDrive\pkgs-4windows
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Add maint dir to the desktop
@@ -40,9 +41,9 @@ rem if exist "C:\Program Files\VeraCrypt\VeraCrypt.exe" goto :okprogs
 %PKGWIN%\net-noip-DUCSetup_v4_1_1.exe
 %PKGWIN%\notepad2x64.exe
 %PKGWIN%\pathcopy.exe
-%PKGWIN%\s3browser-9-1-3.exe
+rem %PKGWIN%\s3browser-9-1-3.exe
 %PKGWIN%\truecrypt-7.1a-setup.exe
-%PKGWIN%\veracrypt-1.24-Update7-setup.exe
+rem %PKGWIN%\veracrypt-1.24-Update7-setup.exe
 %PKGWIN%\maint\ninite-base-desktop-apps.exe
 %PKGWIN%\maint\ninite-base-internet-apps.exe
 %PKGWIN%\maint\ninite-steam.exe
@@ -76,7 +77,7 @@ goto :begincrypt
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo Environment setup (globals, directory junctions etc.)...
 
-set HANDYDIR=S:\handy
+set HANDYDIR=S:\cs-rambo\onedrive\pkgs-4windows\maint\handy
 if exist D:\handy set HANDYDIR=D:\handy
 if exist E:\handy set HANDYDIR=E:\handy
 if exist F:\handy set HANDYDIR=F:\handy
