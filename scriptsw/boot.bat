@@ -83,6 +83,9 @@ set MOBA=%PROG32%\Mobatek\"MobaXterm Professional Edition"\MobaXterm.exe
 set MOBAINI=%USERPROFILE%\AppData\Roaming\MobaXterm\MobaXterm.ini
 if exist %WSDIR%\handy-mc\conf\moba\MobaXterm.ini set MOBAINI=%WSDIR%\handy-mc\conf\moba\MobaXterm.ini
 
+:: Tuning
+set THROSTOP=%MYOPT%\throttlestop\throttlestop.exe
+
 :: Web
 set BRAVEPATH=%PROG%\BraveSoftware\Brave-Browser\Application\brave.exe
 set CHROMEPATH=%PROG%\Google\Chrome\Application\chrome.exe
@@ -108,6 +111,9 @@ tasklist | findstr KeePassXC || if exist %MYKEEPASS% start /max %MYKEEPASS%
 :: Terminal - ConEmu
 rem cd %WSDIR%
 rem tasklist | findstr ConEmu || if exist %CONEMU% start %CONEMU% -Max
+
+:: Tuning
+tasklist | findstr throttlestop || if exist %THROSTOP% (start %THROSTOP%)
 
 timeout 4
 cd %TMP%
