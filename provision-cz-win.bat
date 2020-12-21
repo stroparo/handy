@@ -9,10 +9,10 @@ set PROG32=C:\"Program Files (x86)"
 if not exist %PROG32% set PROG32=%PROG%
 
 set CRYPT_FILE_BASENAME=z.tc
-if not exist %ST_DATA_PATH% set ST_DATA_PATH=K:
-if not exist %ST_DATA_PATH% if exist D:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=D:\
-if not exist %ST_DATA_PATH% if exist E:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=E:\
-if not exist %ST_DATA_PATH% if exist F:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=F:\
+if not exist "%ST_DATA_PATH%" set ST_DATA_PATH=K:
+if not exist "%ST_DATA_PATH%" if exist D:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=D:\
+if not exist "%ST_DATA_PATH%" if exist E:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=E:\
+if not exist "%ST_DATA_PATH%" if exist F:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=F:\
 
 set PKGWIN=S:\cs-rambo\onedrive\pkgs-4windows
 if exist D:\pkgs-4windows set PKGWIN=D:\pkgs-4windows
@@ -48,16 +48,16 @@ if not exist "%ProgramFiles%"\"Path Copy Copy"  %PKGWIN%\pathcopy.exe
 rem if not exist "%ProgramFiles%"\"S3 Browser"      %PKGWIN%\s3browser-9-1-3.exe
 if not exist "%ProgramFiles%"\TrueCrypt         %PKGWIN%\truecrypt-7.1a-setup.exe
 rem if not exist "%ProgramFiles%"\VeraCrypt         %PKGWIN%\veracrypt-1.24-Update7-setup.exe
-%PKGWIN%\maint\ninite-base-min-apps.exe
+%PKGWIN%\maint\ninite-base-min.exe
 
 :: Packages specific for RAMBO host (nitro 5 or other gamer laptop):
 if not %computername% == RAMBO goto :notrambo
 if not exist "%ProgramFiles%"\Macrium           S:\cs-rambo\onedrive\pkgs-licensed\fs-part-reflect-macrium-free-v7.2.4971.exe
 if not exist %PROG32%\"MSI Afterburner"         S:\cs-rambo\onedrive\pkgs-4windows-drivers\MSIAfterburnerSetup462.exe
-if not exist %ST_DATA_PATH%\"MSI Kombustor 4 x64"     S:\cs\pkgs-4windows-big\MSI_Kombustor4_Setup_v4.1.10.0_x64.exe
+if not exist %ST_DATA_PATH%\installed\"MSI Kombustor 4 x64"     S:\cs\pkgs-4windows-big\MSI_Kombustor4_Setup_v4.1.10.0_x64.exe
 %PKGWIN%\maint\ninite-base-desktop-apps.exe
 %PKGWIN%\maint\ninite-base-internet-apps.exe
-%PKGWIN%\maint\ninite-steam.exe
+if not exist %PROG32%\Steam                     %PKGWIN%\maint\ninite-steam.exe
 goto :endenvpackages
 
 :notrambo
@@ -98,18 +98,18 @@ echo Environment setup (globals, directory junctions etc.)...
 
 set HANDYDIR=S:\cs-rambo\onedrive\pkgs-4windows\maint\handy
 if exist Z:\workspace\handy set HANDYDIR=Z:\workspace\handy
-if exist %HANDYDIR% goto :okhandydir
-if not exist %HANDYDIR% if exist D:\handy set HANDYDIR=D:\handy
-if not exist %HANDYDIR% if exist E:\handy set HANDYDIR=E:\handy
-if not exist %HANDYDIR% if exist F:\handy set HANDYDIR=F:\handy
-if not exist %HANDYDIR% if exist L:\handy set HANDYDIR=L:\handy
-if exist %HANDYDIR% goto :okhandydir
+if exist "%HANDYDIR%" goto :okhandydir
+if not exist "%HANDYDIR%" if exist D:\handy set HANDYDIR=D:\handy
+if not exist "%HANDYDIR%" if exist E:\handy set HANDYDIR=E:\handy
+if not exist "%HANDYDIR%" if exist F:\handy set HANDYDIR=F:\handy
+if not exist "%HANDYDIR%" if exist L:\handy set HANDYDIR=L:\handy
+if exist "%HANDYDIR%" goto :okhandydir
 echo Error setting up HANDYDIR global. No directory found. Aborting!
 exit 1
 :okhandydir
 
 set SETUPENV=%HANDYDIR%\scriptsw\setupenv.bat
-if exists %SETUPENV% call %SETUPENV%
+call %SETUPENV%
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Fonts installation
@@ -122,8 +122,8 @@ powershell -nologo -ExecutionPolicy Bypass -File %HANDYDIR%\fonts\fonts-install.
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 @echo Setting up Windows preferences via registry and startup...
 
-copy /Y %HANDYDIR%\scriptsw\boot-at-z.lnk %USERPROFILE%\Desktop\
-copy /Y %HANDYDIR%\scriptsw\boot-cloud-at-z.lnk %USERPROFILE%\Desktop\
+copy /B /Y %HANDYDIR%\scriptsw\boot-at-z.lnk %USERPROFILE%\Desktop\
+copy /B /Y %HANDYDIR%\scriptsw\boot-cloud-at-z.lnk %USERPROFILE%\Desktop\
 
 regedit /S %USERPROFILE%\Desktop\maint\bootpre.reg
 
@@ -158,8 +158,6 @@ explorer "%HANDYDIR%\scriptsw"
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo Execute this in Bash (e.g. in Git for Windows):
 echo if cd $(cygpath '%HANDYDIR%') ; then source ./runr-provision-${RECIPE_SUFFIX:-cz}.sh ; fi
-echo
-echo After that, import %USERPROFILE%\Desktop\maint\bootpre.reg
 echo
 rem pause
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
