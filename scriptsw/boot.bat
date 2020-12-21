@@ -1,25 +1,25 @@
 @echo off
 @echo off
 
+:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Globals
+
 set PROG=C:\"Program Files"
 set PROG32=C:\"Program Files (x86)"
 if not exist %PROG32% set PROG32=%PROG%
 
-:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Globals
-
-if exist %USERPROFILE%\opt set MYOPT=%USERPROFILE%\opt
-if exist K:\opt set MYOPT=K:\opt
-if exist Z:\opt set MYOPT=Z:\opt
+if not exist %ST_DATA_PATH%\ set ST_DATA_PATH=K:
+if not exist %MYOPT% set MYOPT=%ST_DATA_PATH%\opt
 
 :: Working dirs - workspace
-if exist %USERPROFILE%\workspace set WSDIR=%USERPROFILE%\workspace
-if exist Z:\workspace set WSDIR=Z:\workspace
+set WSDIR=%DEV%
+if not exist %WSDIR% set WSDIR=Z:\workspace
+if not exist %WSDIR% if exist %USERPROFILE%\workspace set WSDIR=%USERPROFILE%\workspace
 
-:: Working dirs - workspace - handy dir
-set HANDYDIR=Z:\handy
+:: Working dirs for handy stuff:
+set HANDYDIR=%WSDIR%\handy
+if not exist %HANDYDIR% if exist Z:\handy set HANDYDIR=Z:\handy
 set HANDYSDIR=Z:\handys
-if exist %WSDIR%\handy set HANDYDIR=%WSDIR%\handy
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Globals - Applications
@@ -113,7 +113,7 @@ rem cd %WSDIR%
 rem tasklist | findstr ConEmu || if exist %CONEMU% start %CONEMU% -Max
 
 :: Tuning
-tasklist | findstr throttlestop || if exist %THROSTOP% (start %THROSTOP%)
+tasklist | findstr ThrottleStop || if exist %THROSTOP% (start %THROSTOP%)
 
 timeout 4
 cd %TMP%
@@ -138,22 +138,24 @@ if exist %BROWSERPATH% start /max %BROWSERPATH%
 :browserrunning
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Env specific
+:: Globals environment specific
 
-:: Globals:
-
-:: DROPBOXHOME
+:: Dropbox
+if exist %DROPBOXHOME% goto :existsdropboxhome
 if exist K:\Dropbox set DROPBOXHOME=K:\Dropbox
 if exist %USERPROFILE%\Dropbox set DROPBOXHOME=%USERPROFILE%\Dropbox
 if exist Z:\Dropbox set DROPBOXHOME=Z:\Dropbox
+:existsdropboxhome
 
-if exist %DROPBOXHOME%\PortableApps set PORTABLEPARENT=%DROPBOXHOME%
-if exist %USERPROFILE%\PortableApps set PORTABLEPARENT=%USERPROFILE%
-if exist Z:\PortableApps set PORTABLEPARENT=Z:
+:: PortableApps
+set PORTABLEPARENT=Z:
+if not exist %PORTABLEPARENT% if exist %DROPBOXHOME%\PortableApps set PORTABLEPARENT=%DROPBOXHOME%
+if not exist %PORTABLEPARENT% if exist %USERPROFILE%\PortableApps set PORTABLEPARENT=%USERPROFILE%
 
-:: Calls:
+:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Program execution environment specific
 
-:: Portable Apps
+:: PortableApps
 tasklist | findstr PortableApps || if exist %PORTABLEPARENT%\PortableApps (start %PORTABLEPARENT%\Start.exe)
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

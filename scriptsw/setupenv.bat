@@ -1,17 +1,20 @@
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Globals local script
 
-set DATA_PATH=K:
-set JUNCTION_PATH=%DATA_PATH%\opt\junction\junction.exe
-set MYOPT=%DATA_PATH%\opt
+if not exist %ST_DATA_PATH%\ set ST_DATA_PATH=K:
+if not exist %MYOPT% set MYOPT=%ST_DATA_PATH%\opt
+
+set JUNCTION_PATH=%ST_DATA_PATH%\opt\junction\junction.exe
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Globals userspace permanent
 
 SETX DEV Z:\workspace
-SETX GAMESHOME %DATA_PATH%\games
+SETX GAMESHOME %ST_DATA_PATH%\games
 SETX MYOPT "%MYOPT%"
+SETX PAROOT Z:\PortableApps
 SETX PKGWIN "%USERPROFILE%\OneDrive\pkgs-4windows"
+SETX ST_DATA_PATH "%ST_DATA_PATH%"
 SETX USERTEMP "%USERPROFILE%\AppData\Local\Temp"
 SETX USERTMP "%USERPROFILE%\AppData\Local\Temp"
 :: Cloud:
