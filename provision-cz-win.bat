@@ -124,22 +124,32 @@ powershell -nologo -ExecutionPolicy Bypass -File %HANDYDIR%\fonts\fonts-install.
 
 copy /B /Y %HANDYDIR%\scriptsw\boot-at-z.lnk %USERPROFILE%\Desktop\
 copy /B /Y %HANDYDIR%\scriptsw\boot-cloud-at-z.lnk %USERPROFILE%\Desktop\
+dir %USERPROFILE%\Desktop\boot*lnk
 
+echo regedit importing %USERPROFILE%\Desktop\maint\bootpre.reg
 regedit /S %USERPROFILE%\Desktop\maint\bootpre.reg
 
 if exist %HANDYDIR%\conf\win-registry-favs (
   :: TODO exec as admin:
   rem explorer-menu-add-sublime-myopt.bat
 
+  echo regedit importing %HANDYDIR%\conf\win-registry-favs\antivirus-disable.reg
   regedit /S %HANDYDIR%\conf\win-registry-favs\antivirus-disable.reg
+  echo regedit importing %HANDYDIR%\conf\win-registry-favs\associate-magnet-to-qbittorrent.reg
   regedit /S %HANDYDIR%\conf\win-registry-favs\associate-magnet-to-qbittorrent.reg
+  echo regedit importing %HANDYDIR%\conf\win-registry-favs\explorer-show-extensions.reg
   regedit /S %HANDYDIR%\conf\win-registry-favs\explorer-show-extensions.reg
+  echo regedit importing %HANDYDIR%\conf\win-registry-favs\explorer-show-files.reg
   regedit /S %HANDYDIR%\conf\win-registry-favs\explorer-show-files.reg
+  echo regedit importing %HANDYDIR%\conf\win-registry-favs\w10-lockscreen-disable.reg
   regedit /S %HANDYDIR%\conf\win-registry-favs\w10-lockscreen-disable.reg
+  echo regedit importing %HANDYDIR%\conf\win-registry-favs\w10-login-nonblurred.reg
   regedit /S %HANDYDIR%\conf\win-registry-favs\w10-login-nonblurred.reg
+  echo regedit importing %HANDYDIR%\conf\win-registry-favs\w10-time-hardware-clock-as-utc.reg
   regedit /S %HANDYDIR%\conf\win-registry-favs\w10-time-hardware-clock-as-utc.reg
 )
 if exist %HANDYDIR%\conf\win-registry-other (
+  echo regedit importing %HANDYDIR%\conf\win-registry-other\explorer-checkboxes.reg
   regedit /S %HANDYDIR%\conf\win-registry-other\explorer-checkboxes.reg
 )
 
