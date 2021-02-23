@@ -27,6 +27,7 @@ set HANDYSDIR=Z:\handys
 :: Filesystem indexing - Everything app
 set EVTH=%PROG32%\Everything\Everything.exe
 set EVTHOPT=%MYOPT%\everything\Everything.exe
+set EVTHOPT=%MYOPT%\everythingfu\Everything.exe
 
 :: Launchy
 set LCHY=%PROG32%\Launchy\Launchy.exe
