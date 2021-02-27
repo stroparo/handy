@@ -127,15 +127,17 @@ rem set PROG32=C:\"Program Files (x86)"
 rem if not exist %PROG32% set PROG32=%PROG%
 
 rem set BROWSEREXPR=brave
-rem set BROWSEREXPR=chrome
-set BROWSEREXPR=firefox
+set BROWSEREXPR=chrome
+rem set BROWSEREXPR=firefox
 
 rem set BROWSERPATH=%BRAVEPATH%
-rem set BROWSERPATH=%CHROMEPATH%
-set BROWSERPATH=%FIREFOXPATH%
+set BROWSERPATH=%CHROMEPATH%
+rem set BROWSERPATH=%FIREFOXPATH%
+set BROWSEROPTS=--profile-directory="Default"
 
 tasklist | findstr %BROWSEREXPR% && goto :browserrunning
-if exist %BROWSERPATH% start /max %BROWSERPATH%
+rem if exist %BROWSERPATH% start /max %BROWSERPATH%
+if exist %BROWSERPATH% start /max %BROWSERPATH% %BROWSEROPTS%
 :browserrunning
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
