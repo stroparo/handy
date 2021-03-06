@@ -114,7 +114,7 @@ rem cd %WSDIR%
 rem tasklist | findstr ConEmu || if exist %CONEMU% start %CONEMU% -Max
 
 :: Tuning
-tasklist | findstr ThrottleStop || if exist %THROSTOP% (start %THROSTOP%)
+rem tasklist | findstr ThrottleStop || if exist %THROSTOP% (start %THROSTOP%)
 
 timeout 4
 cd %TMP%
