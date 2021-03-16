@@ -7,9 +7,10 @@
     <volume mountpoint="P:\" label="P-photos-p-at-K">K:\p.tc</volume>
     <volume mountpoint="P:\" label="P-photonos-at-I">I:\photonos.tc</volume>
     <volume mountpoint="Q:\" label="P-photos-at-S-mount-at-Q">S:\p.tc</volume>
-    <volume mountpoint="X:\" label="X-at-I">I:\csx.tc</volume>
+    <volume mountpoint="X:\" label="X-at-I" mountOnLogOn="1" mountOnArrival="1">I:\csx.tc</volume>
+    <volume mountpoint="Y:\" label="X-at-S" mountOnLogOn="1" mountOnArrival="1">S:\bak-cs\csx.tc</volume>
     <volume mountpoint="Z:\" label="Z-at-K">K:\z.tc</volume>
     <!-- <volume mountpoint="Z:\" label="Z-at-S">S:\z.tc</volume> -->
-    <volume mountpoint="Y:\" label="Z-at-S-mount-at-Y">S:\z.tc</volume>
+    <!-- <volume mountpoint="Y:\" label="Z-at-S-mount-at-Y">S:\z.tc</volume> -->
   </favorites>
 </TrueCrypt>
