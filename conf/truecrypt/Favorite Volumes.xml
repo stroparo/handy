@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TrueCrypt>
   <favorites>
-    <!-- <volume mountpoint="Z:\" label="Z-at-C.Users.user" mountOnLogOn="1">C:\Users\user\z.tc</volume> -->
-    <!-- <volume mountpoint="Z:\" label="Z-at-D" mountOnLogOn="1" mountOnArrival="1">D:\z.tc</volume> -->
-    <!-- <volume mountpoint="Z:\" label="Z-at-E" mountOnLogOn="1" mountOnArrival="1">E:\z.tc</volume> -->
-    <volume mountpoint="P:\" label="P-photos-p-at-K">K:\p.tc</volume>
-    <volume mountpoint="P:\" label="P-photonos-at-I">I:\photonos.tc</volume>
-    <volume mountpoint="Q:\" label="P-photos-at-S-mount-at-Q">S:\p.tc</volume>
-    <volume mountpoint="X:\" label="X-at-I" mountOnLogOn="1" mountOnArrival="1">I:\csx.tc</volume>
-    <volume mountpoint="Y:\" label="X-at-S" mountOnLogOn="1" mountOnArrival="1">S:\bakcs\csx.tc</volume>
-    <volume mountpoint="Z:\" label="Z-at-K">K:\z.tc</volume>
-    <!-- <volume mountpoint="Z:\" label="Z-at-S">S:\z.tc</volume> -->
-    <!-- <volume mountpoint="Y:\" label="Z-at-S-mount-at-Y">S:\z.tc</volume> -->
+    <!-- <volume mountpoint="Z:\" label="Z-from-C.Users.user" mountOnLogOn="1">C:\Users\user\z.tc</volume> -->
+    <!-- <volume mountpoint="Z:\" label="Z-from-D" mountOnLogOn="1" mountOnArrival="1">D:\z.tc</volume> -->
+    <!-- <volume mountpoint="Z:\" label="Z-from-E" mountOnLogOn="1" mountOnArrival="1">E:\z.tc</volume> -->
+    <!-- <volume mountpoint="Z:\" label="Z-from-K">K:\z.tc</volume> -->
+    <volume mountpoint="P:\" label="P-photonos-from-J">J:\photonos.tc</volume>
+    <volume mountpoint="Q:\" label="P-photonos-Q-from-I">I:\photonos.tc</volume>
+    <volume mountpoint="Q:\" label="P-photonos-Q-from-S">S:\bakcs\photonos.tc</volume>
   </favorites>
 </TrueCrypt>
