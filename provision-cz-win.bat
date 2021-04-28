@@ -19,6 +19,7 @@ if exist D:\pkgs-4windows set PKGWIN=D:\pkgs-4windows
 if exist E:\pkgs-4windows set PKGWIN=E:\pkgs-4windows
 if exist F:\pkgs-4windows set PKGWIN=F:\pkgs-4windows
 if exist L:\pkgs-4windows set PKGWIN=L:\pkgs-4windows
+if exist M:\pkgs-4windows set PKGWIN=M:\pkgs-4windows
 if exist K:\OneDrive\pkgs-4windows set PKGWIN=K:\OneDrive\pkgs-4windows
 if exist C:\Users\user\OneDrive\pkgs-4windows set PKGWIN=C:\Users\user\OneDrive\pkgs-4windows
 if exist Z:\OneDrive\pkgs-4windows set PKGWIN=Z:\OneDrive\pkgs-4windows
@@ -103,6 +104,7 @@ if not exist "%HANDYDIR%" if exist D:\handy set HANDYDIR=D:\handy
 if not exist "%HANDYDIR%" if exist E:\handy set HANDYDIR=E:\handy
 if not exist "%HANDYDIR%" if exist F:\handy set HANDYDIR=F:\handy
 if not exist "%HANDYDIR%" if exist L:\handy set HANDYDIR=L:\handy
+if not exist "%HANDYDIR%" if exist M:\handy set HANDYDIR=M:\handy
 if exist "%HANDYDIR%" goto :okhandydir
 echo Error setting up HANDYDIR global. No directory found. Aborting!
 exit 1
