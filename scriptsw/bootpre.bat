@@ -17,14 +17,18 @@ goto :loopstart
 :: Mount external encrypted partition:
 set KEYF_XENC=Z:\handys\conf\crypt-keyfiles\swordfish
 if not exist %KEYF_XENC% goto :nokeyfx
+
 if not exist S:\bakcs\csx.tc goto :nocsxwd
 "C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "S:\bakcs\csx.tc" /l y /q /k %KEYF_XENC%
 :nocsxwd
-if not exist J:\csx.tc goto :noxencrypted
+
+if not exist J:\csx.tc goto :nocsxsg
 "C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "J:\csx.tc" /l x /q /k %KEYF_XENC%
-:noxencrypted
+:nocsxsg
+
 :nokeyfx
 
 
-start %COMSPEC% /C Z:\workspace\handy\scriptsw\boot.bat
+if exist %USERPROFILE%\Desktop\handy\scriptsw\boot.bat start %COMSPEC% /C %USERPROFILE%\Desktop\handy\scriptsw\boot.bat
+if not exist %USERPROFILE%\Desktop\handy\scriptsw\boot.bat start %COMSPEC% /C Z:\workspace\handy\scriptsw\boot.bat
 exit
