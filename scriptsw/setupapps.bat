@@ -39,7 +39,6 @@ start %COMSPEC% /c %PKGDEVEL%\0zips2myopt.bat
 if %computername% == RAMBO goto :skiprambonini
 %PKGAPPS%\ninite-tha.exe
 %PKGAPPS%\ninite-java8.exe
-%PKGAPPS%\ninite-libreoffice.exe
 if %computername% == QUINDIM goto :skipquindnini
 %PKGAPPS%\ninite-base-min.exe
 %PKGAPPS%\ninite-base-desktop-apps.exe
