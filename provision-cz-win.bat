@@ -1,177 +1,186 @@
 @echo off
-@echo off
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Globals local script
+:: Globals
 
+set CWD=%~dp0
 set PROG=C:\"Program Files"
 set PROG32=C:\"Program Files (x86)"
 if not exist %PROG32% set PROG32=%PROG%
+
+:: CWD (current working dir. based):
+set PKGCONF=%CWD%\conf
+set PKGFONTS=%CWD%\fonts
+set PKGWINREG=%CWD%\conf\win-registry-favs
+set PKGWINREGETC=%CWD%\conf\win-registry-other
+set SCRIPTSW=%CWD%\scriptsw
+
+set BASENAMENVIDIA=NVCleanstall_1.9.0.exe
+set BASENAMEDRIVERSDIR=pkgs-drivers
 
 set CRYPT_FILE_BASENAME=z.tc
 if not exist "%ST_DATA_PATH%" set ST_DATA_PATH=K:
 if not exist "%ST_DATA_PATH%" if exist D:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=D:\
 if not exist "%ST_DATA_PATH%" if exist E:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=E:\
 if not exist "%ST_DATA_PATH%" if exist F:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=F:\
+if not exist "%ST_DATA_PATH%" if exist G:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=G:\\
 
-set PKGWIN=S:\cs-rambo\onedrive\pkgs-4windows
-if exist D:\pkgs-4windows set PKGWIN=D:\pkgs-4windows
-if exist E:\pkgs-4windows set PKGWIN=E:\pkgs-4windows
-if exist F:\pkgs-4windows set PKGWIN=F:\pkgs-4windows
-if exist L:\pkgs-4windows set PKGWIN=L:\pkgs-4windows
-if exist M:\pkgs-4windows set PKGWIN=M:\pkgs-4windows
-if exist K:\OneDrive\pkgs-4windows set PKGWIN=K:\OneDrive\pkgs-4windows
-if exist C:\Users\user\OneDrive\pkgs-4windows set PKGWIN=C:\Users\user\OneDrive\pkgs-4windows
-if exist Z:\OneDrive\pkgs-4windows set PKGWIN=Z:\OneDrive\pkgs-4windows
+set PKGWIN=H:\sp--pkgs-4windows
+if not exist "%PKGWIN%" if exist D:\sp--pkgs-4windows set PKGWIN=D:\sp--pkgs-4windows
+if not exist "%PKGWIN%" if exist E:\sp--pkgs-4windows set PKGWIN=E:\sp--pkgs-4windows
+if not exist "%PKGWIN%" if exist F:\sp--pkgs-4windows set PKGWIN=F:\sp--pkgs-4windows
+if not exist "%PKGWIN%" if exist F:\sp--pkgs-4windows set PKGWIN=G:\sp--pkgs-4windows
+if not exist "%PKGWIN%" if exist J:\sp--pkgs-4windows set PKGWIN=J:\sp--pkgs-4windows
+if not exist "%PKGWIN%" if exist D:\bakcs\sp--pkgs-4windows set PKGWIN=D:\bakcs\sp--pkgs-4windows
+if not exist "%PKGWIN%" if exist E:\bakcs\sp--pkgs-4windows set PKGWIN=E:\bakcs\sp--pkgs-4windows
+if not exist "%PKGWIN%" if exist F:\bakcs\sp--pkgs-4windows set PKGWIN=F:\bakcs\sp--pkgs-4windows
+if not exist "%PKGWIN%" if exist F:\bakcs\sp--pkgs-4windows set PKGWIN=G:\bakcs\sp--pkgs-4windows
+if not exist "%PKGWIN%" if exist F:\bakcs\sp--pkgs-4windows set PKGWIN=S:\bakcs\sp--pkgs-4windows
+if not exist "%PKGWIN%" if exist X:\pkgs-4windows set PKGWIN=X:\pkgs-4windows
+if not exist "%PKGWIN%" if exist Y:\pkgs-4windows set PKGWIN=Y:\pkgs-4windows
+set MAINTDIR=%PKGWIN%\maint
 
 rem set PAROOT=Z:\PortableApps
 rem set SEVENFM=%PAROOT%\7-ZipPortable\App\7-Zip\7zFM.exe
 
+
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Add maint dir to the desktop
+echo provision-cz-win: Copy maintenance assets to the Desktop directory ...
 
 if exist %USERPROFILE%\Desktop\maint goto :okmaint
-echo Copying maint directory to the desktop...
+echo provision-cz-win: Copying maint directory to the desktop...
 md %USERPROFILE%\Desktop\maint
-copy /Y %PKGWIN%\maint\* %USERPROFILE%\Desktop\maint\
+copy /Y %MAINTDIR%\* %USERPROFILE%\Desktop\maint\
 :okmaint
 
-:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-echo Installing applications (mostly in %PKGWIN%) ...
-
-if not exist %PROG32%\Auslogics\"Duplicate File Finder"     %PKGWIN%\duplicate-file-finder-setup.exe
-if not exist "%ProgramFiles%"\Defraggler        %PKGWIN%\dfsetup222.exe
-if not exist "%ProgramFiles%"\Eraser            %PKGWIN%\eraser-5.8.8.exe
-if not exist %PROG32%\GPU-Z                     %PKGWIN%\GPU-Z.2.21.0.exe
-if not exist %PROG32%\No-IP                     %PKGWIN%\net-noip-DUCSetup_v4_1_1.exe
-if not exist "%ProgramFiles%"\Notepad2          %PKGWIN%\notepad2x64.exe
-if not exist "%ProgramFiles%"\"Path Copy Copy"  %PKGWIN%\pathcopy.exe
-rem if not exist "%ProgramFiles%"\"S3 Browser"      %PKGWIN%\s3browser-9-1-3.exe
-if not exist "%ProgramFiles%"\TrueCrypt         %PKGWIN%\truecrypt-7.1a-setup.exe
-rem if not exist "%ProgramFiles%"\VeraCrypt         %PKGWIN%\veracrypt-1.24-Update7-setup.exe
-%PKGWIN%\maint\ninite-base-min.exe
-
-:: Packages specific for RAMBO host (nitro 5 or other gamer laptop):
-if not %computername% == RAMBO goto :notrambo
-if not exist "%ProgramFiles%"\Macrium           S:\cs-rambo\onedrive\pkgs-licensed\fs-part-reflect-macrium-free-v7.2.4971.exe
-if not exist %PROG32%\"MSI Afterburner"         S:\cs-rambo\onedrive\pkgs-4windows-drivers\MSIAfterburnerSetup462.exe
-if not exist %ST_DATA_PATH%\installed\"MSI Kombustor 4 x64"     S:\cs\pkgs-4windows-big\MSI_Kombustor4_Setup_v4.1.10.0_x64.exe
-%PKGWIN%\maint\ninite-base-desktop-apps.exe
-%PKGWIN%\maint\ninite-base-internet-apps.exe
-if not exist %PROG32%\Steam                     %PKGWIN%\maint\ninite-steam.exe
-goto :endenvpackages
-
-:notrambo
-
-:endenvpackages
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Drivers
+echo provision-cz-win: Setting up drivers for the 'rambo' host ...
 
 if not %computername% == RAMBO goto :notrambo
-
 
 if exist "%PROG%\NVIDIA" goto :oknvidia
 if exist "%PROG%\NVIDIA Corporation" goto :oknvidia
 if exist "%PROG32%\NVIDIA Corporation" goto :oknvidia
 if exist "%PROGRAMDATA%\NVIDIA" goto :oknvidia
 if exist "%PROGRAMDATA%\NVIDIA Corporation" goto :oknvidia
-%PKGWIN%-drivers\NVCleanstall_1.7.0.exe
+%MAINTDIR%\%BASENAMENVIDIA%
 :oknvidia
 
+:: Explorer at drivers packages directory
+if exist D:\%BASENAMEDRIVERSDIR% explorer D:\%BASENAMEDRIVERSDIR%
+if exist E:\%BASENAMEDRIVERSDIR% explorer E:\%BASENAMEDRIVERSDIR%
+if exist F:\%BASENAMEDRIVERSDIR% explorer F:\%BASENAMEDRIVERSDIR%
+if exist G:\%BASENAMEDRIVERSDIR% explorer G:\%BASENAMEDRIVERSDIR%
+if exist J:\%BASENAMEDRIVERSDIR% explorer J:\%BASENAMEDRIVERSDIR%
 
 :notrambo
 
+
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Mount encrypted partition
+echo provision-cz-win: Setting up environment: globals, junctions etc.
+
+call %SCRIPTSW%\setupenv.bat
+%COMSPEC% /c %SCRIPTSW%\setupjunctions.bat
+
+
+:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo provision-cz-win: Setting applications up ...
+
+%COMSPEC% /c %SCRIPTSW%\setupapps.bat
+
+
+:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: TODO implement devel packages installation
+
+goto :endenvpackages
+:endenvpackages
+
+
+:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo provision-cz-win: Mounting encrypted partition ...
 
 :begincrypt
 if exist Z:\workspace goto :okcrypt
-echo Waiting for Z:\ to be mounted...
+echo provision-cz-win: Waiting for Z:\ to be mounted...
 "C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%ST_DATA_PATH%\%CRYPT_FILE_BASENAME%" /l z /q /e
 rem "C:\Program Files\VeraCrypt\VeraCrypt.exe" /tc /v "%ST_DATA_PATH%\%CRYPT_FILE_BASENAME%" /l z /q /e
 timeout 1
 goto :begincrypt
 :okcrypt
 
-:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-echo Environment setup (globals, directory junctions etc.)...
-
-set HANDYDIR=S:\cs-rambo\onedrive\pkgs-4windows\maint\handy
-if exist Z:\workspace\handy set HANDYDIR=Z:\workspace\handy
-if exist "%HANDYDIR%" goto :okhandydir
-if not exist "%HANDYDIR%" if exist D:\handy set HANDYDIR=D:\handy
-if not exist "%HANDYDIR%" if exist E:\handy set HANDYDIR=E:\handy
-if not exist "%HANDYDIR%" if exist F:\handy set HANDYDIR=F:\handy
-if not exist "%HANDYDIR%" if exist L:\handy set HANDYDIR=L:\handy
-if not exist "%HANDYDIR%" if exist M:\handy set HANDYDIR=M:\handy
-if exist "%HANDYDIR%" goto :okhandydir
-echo Error setting up HANDYDIR global. No directory found. Aborting!
-exit 1
-:okhandydir
-
-set SETUPENV=%HANDYDIR%\scriptsw\setupenv.bat
-call %SETUPENV%
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Fonts installation
 
 if exist "%LocalAppData%\MICROSOFT\Windows\Fonts\DROID SANS MONO DOTTED FOR POWERLINE.TTF" goto :okfonts
-echo Installing fonts...
-powershell -nologo -ExecutionPolicy Bypass -File %HANDYDIR%\fonts\fonts-install.ps1
+echo provision-cz-win: Installing fonts...
+powershell -nologo -ExecutionPolicy Bypass -File %PKGFONTS%\fonts-install.ps1
 :okfonts
 
-:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-@echo Setting up Windows preferences via registry and startup...
 
-copy /B /Y %HANDYDIR%\scriptsw\boot-at-z.lnk %USERPROFILE%\Desktop\
-copy /B /Y %HANDYDIR%\scriptsw\boot-cloud-at-z.lnk %USERPROFILE%\Desktop\
+:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+@echo provision-cz-win: Setting up Windows links and preferences (registry and startup) ...
+
+copy /B /Y %SCRIPTSW%\boot-at-z.lnk %USERPROFILE%\Desktop\
+copy /B /Y %SCRIPTSW%\boot-cloud-at-z.lnk %USERPROFILE%\Desktop\
 dir %USERPROFILE%\Desktop\boot*lnk
 
-echo regedit importing %USERPROFILE%\Desktop\maint\bootpre.reg
-regedit /S %USERPROFILE%\Desktop\maint\bootpre.reg
+echo provision-cz-win: regedit importing %SCRIPTSW%\bootpre.reg
+regedit /S %SCRIPTSW%\bootpre.reg
 
-if exist %HANDYDIR%\conf\win-registry-favs (
+if exist %PKGWINREG% (
   :: TODO exec as admin:
   rem explorer-menu-add-sublime-myopt.bat
 
-  echo regedit importing %HANDYDIR%\conf\win-registry-favs\antivirus-disable.reg
-  regedit /S %HANDYDIR%\conf\win-registry-favs\antivirus-disable.reg
-  echo regedit importing %HANDYDIR%\conf\win-registry-favs\associate-magnet-to-qbittorrent.reg
-  regedit /S %HANDYDIR%\conf\win-registry-favs\associate-magnet-to-qbittorrent.reg
-  echo regedit importing %HANDYDIR%\conf\win-registry-favs\explorer-show-extensions.reg
-  regedit /S %HANDYDIR%\conf\win-registry-favs\explorer-show-extensions.reg
-  echo regedit importing %HANDYDIR%\conf\win-registry-favs\explorer-show-files.reg
-  regedit /S %HANDYDIR%\conf\win-registry-favs\explorer-show-files.reg
-  echo regedit importing %HANDYDIR%\conf\win-registry-favs\w10-lockscreen-disable.reg
-  regedit /S %HANDYDIR%\conf\win-registry-favs\w10-lockscreen-disable.reg
-  echo regedit importing %HANDYDIR%\conf\win-registry-favs\w10-login-nonblurred.reg
-  regedit /S %HANDYDIR%\conf\win-registry-favs\w10-login-nonblurred.reg
-  echo regedit importing %HANDYDIR%\conf\win-registry-favs\w10-time-hardware-clock-as-utc.reg
-  regedit /S %HANDYDIR%\conf\win-registry-favs\w10-time-hardware-clock-as-utc.reg
+  echo provision-cz-win: regedit importing  %PKGWINREG%\antivirus-disable.reg
+  regedit /S                                %PKGWINREG%\antivirus-disable.reg
+  echo provision-cz-win: regedit importing  %PKGWINREG%\associate-magnet-to-qbittorrent.reg
+  regedit /S                                %PKGWINREG%\associate-magnet-to-qbittorrent.reg
+  echo provision-cz-win: regedit importing  %PKGWINREG%\explorer-show-extensions.reg
+  regedit /S                                %PKGWINREG%\explorer-show-extensions.reg
+  echo provision-cz-win: regedit importing  %PKGWINREG%\explorer-show-files.reg
+  regedit /S                                %PKGWINREG%\explorer-show-files.reg
+  echo provision-cz-win: regedit importing  %PKGWINREG%\w10-lockscreen-disable.reg
+  regedit /S                                %PKGWINREG%\w10-lockscreen-disable.reg
+  echo provision-cz-win: regedit importing  %PKGWINREG%\w10-login-nonblurred.reg
+  regedit /S                                %PKGWINREG%\w10-login-nonblurred.reg
+  echo provision-cz-win: regedit importing  %PKGWINREG%\w10-time-hardware-clock-as-utc.reg
+  regedit /S                                %PKGWINREG%\w10-time-hardware-clock-as-utc.reg
 )
-if exist %HANDYDIR%\conf\win-registry-other (
-  echo regedit importing %HANDYDIR%\conf\win-registry-other\explorer-checkboxes.reg
-  regedit /S %HANDYDIR%\conf\win-registry-other\explorer-checkboxes.reg
+if exist %PKGWINREGETC% (
+  echo provision-cz-win: regedit importing  %PKGWINREGETC%\explorer-checkboxes.reg
+  regedit /S                                %PKGWINREGETC%\explorer-checkboxes.reg
+  echo provision-cz-win: regedit importing  %PKGWINREGETC%\w10h-disable-windows-update-noauto.reg
+  regedit /S                                %PKGWINREGETC%\w10h-disable-windows-update-noauto.reg
 )
 
+@echo
+@echo provision-cz-win: Select and import registry entries by running .bat's as admin in the explorer window just opened...
+explorer "%PKGWINREG%"
+pause
+
+
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-@echo Setup user preferences...
+@echo
+@echo provision-cz-win: Setting up user preferences...
 
 intl.cpl
 main.cpl
 %windir%\system32\control.exe sysdm.cpl,System,3
 
-:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: TODO import .reg files
+pause
 
-explorer "%HANDYDIR%\scriptsw"
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-echo Execute this in Bash (e.g. in Git for Windows):
-echo if cd $(cygpath '%HANDYDIR%') ; then source ./runr-provision-${RECIPE_SUFFIX:-cz}.sh ; fi
 echo
-rem pause
-:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo provision-cz-win: COMPLETE.
+echo
+echo provision-cz-win: Execute this in Bash (e.g. in Git for Windows):
+echo provision-cz-win: if cd $(cygpath '%CWD%') ; then source ./runr-provision-${RECIPE_SUFFIX:-cz}.sh ; fi
+echo
 
 pause
+
+
+:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

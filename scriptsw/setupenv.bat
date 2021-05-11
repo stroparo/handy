@@ -1,27 +1,48 @@
+@echo off
+
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Globals local script
+:: Globals
 
 if "%ST_DATA_PATH%\" == "\" set ST_DATA_PATH=K:
 if "%MYOPT%" == "" set MYOPT=%ST_DATA_PATH%\opt
 
-set JUNCTION_PATH=%ST_DATA_PATH%\opt\junction\junction.exe
-
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Globals userspace permanent
+echo Settings up globals in userspace (SETX) ...
 
-SETX DEV Z:\workspace
-SETX GAMESHOME %ST_DATA_PATH%\games
+echo
+echo MYOPT=%MYOPT%
+echo ST_DATA_PATH=%ST_DATA_PATH%
+echo
+
+:: Local env globals setup (this execution env):
+set DEV=Z:\workspace
+set GAMESHOME=%ST_DATA_PATH%\games
+set PAROOT=Z:\PortableApps
+set PKGWIN=X:\pkgs-4windows
+set USERTEMP=%USERPROFILE%\AppData\Local\Temp
+set USERTMP=%USERPROFILE%\AppData\Local\Temp
+:: Cloud:
+set DROPBOXHOME="K:\Dropbox"
+set GGLDRIVEHOME="Z:\gdrive"
+set ONEDRIVEHOME="%USERPROFILE%\OneDrive"
+
+:: User env globals setup (Windows userspace, permanent):
+@echo on
+SETX DEV "%DEV%"
+SETX GAMESHOME "%ST_DATA_PATH%\games"
 SETX MYOPT "%MYOPT%"
-SETX PAROOT Z:\PortableApps
-SETX PKGWIN "X:\pkgs-4windows"
+SETX PAROOT "%PAROOT%"
+SETX PKGWIN "%PKGWIN%"
 SETX ST_DATA_PATH "%ST_DATA_PATH%"
-SETX USERTEMP "%USERPROFILE%\AppData\Local\Temp"
-SETX USERTMP "%USERPROFILE%\AppData\Local\Temp"
+SETX USERTEMP "%USERTEMP%"
+SETX USERTMP "%USERTMP%"
 :: Cloud:
 SETX DROPBOXHOME "K:\Dropbox"
 SETX GGLDRIVEHOME "Z:\gdrive"
 SETX ONEDRIVEHOME "%USERPROFILE%\OneDrive"
-:: PATH in userspace
+@echo off
+
+:: PATH global:
 set GPATH=%MYOPT%\ag
 set GPATH=%GPATH%;%MYOPT%\clamav
 set GPATH=%GPATH%;%MYOPT%\clcl
@@ -41,13 +62,17 @@ rem set GPATH=%GPATH%;%MYOPT%\eclipse
 set GPATH=%GPATH%;%MYOPT%\jdk1.8.0_251\app\bin
 set GPATH=%GPATH%;%MYOPT%\jdk1.8.0_251\app\jre\bin
 set GPATH=%GPATH%;%MYOPT%\maven\bin
+set PATH=%PATH%;%GPATH%
+@echo on
 SETX PATH "%GPATH%"
-
-:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-@echo off
 @echo off
 
-:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
+echo
+echo SETX (global environment variables) definitions COMPLETE.
+echo
+echo IMPORTANT (DOUBLE CONFIRMATION BELOW)
+echo IMPORTANT (DOUBLE CONFIRMATION BELOW)
+echo If globals have new values (e.g. pristine host) please terminate this script and rerun...
+echo If globals have new values (e.g. pristine host) please terminate this script and rerun...
+pause
 pause
