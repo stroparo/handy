@@ -5,6 +5,7 @@
 
 if "%ST_DATA_PATH%\" == "\" set ST_DATA_PATH=K:
 if "%MYOPT%" == "" set MYOPT=%ST_DATA_PATH%\opt
+if not exist %MYOPT% md %MYOPT%
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo Settings up globals in userspace (SETX) ...

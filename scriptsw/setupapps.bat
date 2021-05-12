@@ -14,6 +14,7 @@ if not exist "%PKGWIN%" if exist E:\sp--pkgs-4windows set PKGWIN=E:\sp--pkgs-4wi
 if not exist "%PKGWIN%" if exist F:\sp--pkgs-4windows set PKGWIN=F:\sp--pkgs-4windows
 if not exist "%PKGWIN%" if exist F:\sp--pkgs-4windows set PKGWIN=G:\sp--pkgs-4windows
 if not exist "%PKGWIN%" if exist J:\sp--pkgs-4windows set PKGWIN=J:\sp--pkgs-4windows
+if not exist "%PKGWIN%" if exist O:\sp--pkgs-4windows set PKGWIN=O:\sp--pkgs-4windows
 if not exist "%PKGWIN%" if exist D:\bakcs\sp--pkgs-4windows set PKGWIN=D:\bakcs\sp--pkgs-4windows
 if not exist "%PKGWIN%" if exist E:\bakcs\sp--pkgs-4windows set PKGWIN=E:\bakcs\sp--pkgs-4windows
 if not exist "%PKGWIN%" if exist F:\bakcs\sp--pkgs-4windows set PKGWIN=F:\bakcs\sp--pkgs-4windows
@@ -30,13 +31,14 @@ set PKGOPT=%PKGWIN%\opt
 echo setupapps: started setting up applications ...
 
 :: While installers below run, take care of these manually extracted packages:
-start %COMSPEC% /c %PKGOPT%\0deploy.bat
+%COMSPEC% /c %PKGOPT%\0deploy.bat
 if %computername% == QUINDIM goto :skipquindoptdev
-start %COMSPEC% /c %PKGDEVEL%\0zips2myopt.bat
+%COMSPEC% /c %PKGDEVEL%\0zips2myopt.bat
 :skipquindoptdev
 
 :: Ninite application selections:
 if %computername% == RAMBO goto :skiprambonini
+if not %computername% == QUINDIM goto :skipanynini
 %PKGAPPS%\ninite-tha.exe
 %PKGAPPS%\ninite-java8.exe
 if %computername% == QUINDIM goto :skipquindnini
@@ -46,6 +48,7 @@ if %computername% == QUINDIM goto :skipquindnini
 %PKGAPPS%\ninite-java8.exe
 if not exist %PROG32%\Steam                     %PKGAPPS%\ninite-steam.exe
 :skipquindnini
+:skipanynini
 
 if not exist %PROG32%\Auslogics\"Duplicate File Finder"     %PKGAPPS%\duplicate-file-finder-setup.exe /silent
 if not exist "%ProgramFiles%"\Defraggler        %PKGAPPS%\dfsetup222.exe /silent

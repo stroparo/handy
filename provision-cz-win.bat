@@ -14,6 +14,8 @@ set PKGFONTS=%CWD%\fonts
 set PKGWINREG=%CWD%\conf\win-registry-favs
 set PKGWINREGETC=%CWD%\conf\win-registry-other
 set SCRIPTSW=%CWD%\scriptsw
+echo SCRIPTSW=%SCRIPTSW%
+dir %SCRIPTSW%
 
 set BASENAMENVIDIA=NVCleanstall_1.9.0.exe
 set BASENAMEDRIVERSDIR=pkgs-drivers
@@ -23,7 +25,7 @@ if not exist "%ST_DATA_PATH%" set ST_DATA_PATH=K:
 if not exist "%ST_DATA_PATH%" if exist D:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=D:\
 if not exist "%ST_DATA_PATH%" if exist E:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=E:\
 if not exist "%ST_DATA_PATH%" if exist F:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=F:\
-if not exist "%ST_DATA_PATH%" if exist G:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=G:\\
+if not exist "%ST_DATA_PATH%" if exist G:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=G:\
 
 set PKGWIN=H:\sp--pkgs-4windows
 if not exist "%PKGWIN%" if exist D:\sp--pkgs-4windows set PKGWIN=D:\sp--pkgs-4windows
@@ -31,6 +33,7 @@ if not exist "%PKGWIN%" if exist E:\sp--pkgs-4windows set PKGWIN=E:\sp--pkgs-4wi
 if not exist "%PKGWIN%" if exist F:\sp--pkgs-4windows set PKGWIN=F:\sp--pkgs-4windows
 if not exist "%PKGWIN%" if exist F:\sp--pkgs-4windows set PKGWIN=G:\sp--pkgs-4windows
 if not exist "%PKGWIN%" if exist J:\sp--pkgs-4windows set PKGWIN=J:\sp--pkgs-4windows
+if not exist "%PKGWIN%" if exist O:\sp--pkgs-4windows set PKGWIN=O:\sp--pkgs-4windows
 if not exist "%PKGWIN%" if exist D:\bakcs\sp--pkgs-4windows set PKGWIN=D:\bakcs\sp--pkgs-4windows
 if not exist "%PKGWIN%" if exist E:\bakcs\sp--pkgs-4windows set PKGWIN=E:\bakcs\sp--pkgs-4windows
 if not exist "%PKGWIN%" if exist F:\bakcs\sp--pkgs-4windows set PKGWIN=F:\bakcs\sp--pkgs-4windows
@@ -78,10 +81,9 @@ if exist J:\%BASENAMEDRIVERSDIR% explorer J:\%BASENAMEDRIVERSDIR%
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-echo provision-cz-win: Setting up environment: globals, junctions etc.
+echo provision-cz-win: Setting up environment: globals
 
 call %SCRIPTSW%\setupenv.bat
-%COMSPEC% /c %SCRIPTSW%\setupjunctions.bat
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -100,14 +102,29 @@ goto :endenvpackages
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo provision-cz-win: Mounting encrypted partition ...
 
+:begincryptcreate
+if exist K:\z.tc goto :okcryptcreate
+echo provision-cz-win: Waiting for K:\z.tc to be created...
+"C:\Program Files\TrueCrypt\TrueCrypt.exe"
+rem "C:\Program Files\VeraCrypt\VeraCrypt.exe"
+timeout 30
+goto :begincryptcreate
+:okcryptcreate
+
 :begincrypt
-if exist Z:\workspace goto :okcrypt
+if exist Z:\ goto :okcrypt
 echo provision-cz-win: Waiting for Z:\ to be mounted...
 "C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%ST_DATA_PATH%\%CRYPT_FILE_BASENAME%" /l z /q /e
 rem "C:\Program Files\VeraCrypt\VeraCrypt.exe" /tc /v "%ST_DATA_PATH%\%CRYPT_FILE_BASENAME%" /l z /q /e
 timeout 1
 goto :begincrypt
 :okcrypt
+
+
+:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo provision-cz-win: Setting up environment: junctions
+
+%COMSPEC% /c %SCRIPTSW%\setupjunctions.bat
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -126,7 +143,7 @@ copy /B /Y %SCRIPTSW%\boot-at-z.lnk %USERPROFILE%\Desktop\
 copy /B /Y %SCRIPTSW%\boot-cloud-at-z.lnk %USERPROFILE%\Desktop\
 dir %USERPROFILE%\Desktop\boot*lnk
 
-echo provision-cz-win: regedit importing %SCRIPTSW%\bootpre.reg
+echo provision-cz-win: regedit importing  %SCRIPTSW%\bootpre.reg
 regedit /S %SCRIPTSW%\bootpre.reg
 
 if exist %PKGWINREG% (
@@ -157,7 +174,7 @@ if exist %PKGWINREGETC% (
 
 @echo
 @echo provision-cz-win: Select and import registry entries by running .bat's as admin in the explorer window just opened...
-explorer "%PKGWINREG%"
+explorer %PKGWINREG%
 pause
 
 
