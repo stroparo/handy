@@ -18,13 +18,13 @@ goto :loopstart
 set KEYF_XENC=Z:\handys\conf\crypt-keyfiles\swordfish
 if not exist %KEYF_XENC% goto :nokeyfx
 
-if not exist S:\bakcs\csx.tc goto :nocsxwd
-"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "S:\bakcs\csx.tc" /l y /q /k %KEYF_XENC%
-:nocsxwd
+if not exist K:\y.tc goto :noxspare
+"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "K:\y.tc" /l y /q /k %KEYF_XENC%
+:noxspare
 
-if not exist J:\csx.tc goto :nocsxsg
+if not exist J:\csx.tc goto :noxmain
 "C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "J:\csx.tc" /l x /q /k %KEYF_XENC%
-:nocsxsg
+:noxmain
 
 :nokeyfx
 
