@@ -17,8 +17,10 @@ if not exist %USERPROFILE%\data %JUNCTION% %USERPROFILE%\data K:\
 
 if not exist Z:\ exit 1
 md Z:\appsw
+md Z:\appsw\.vscode-oss
 md Z:\appsw\AppData.Local
 md Z:\appsw\AppData.Roaming
+md Z:\appsw\AppData.Roaming\VSCode
 
 explorer %AppData%
 explorer %LocalAppData%
@@ -38,28 +40,31 @@ echo ONE MORE CONFIRMATION OF THE ABOVE WARNING...
 pause
 
 :: AppData.Local:
-if not exist %LocalAppData%\Discord %JUNCTION% %LocalAppData%\Discord Z:\appsw\AppData.Local\Discord
-if not exist %LocalAppData%\Dropbox %JUNCTION% %LocalAppData%\Dropbox Z:\appsw\AppData.Local\Dropbox
-if not exist %LocalAppData%\KeePassXC %JUNCTION% %LocalAppData%\KeePassXC Z:\appsw\AppData.Local\KeePassXC
+rem if not exist %LocalAppData%\Discord %JUNCTION% %LocalAppData%\Discord Z:\appsw\AppData.Local\Discord
+rem if not exist %LocalAppData%\Dropbox %JUNCTION% %LocalAppData%\Dropbox Z:\appsw\AppData.Local\Dropbox
+rem if not exist %LocalAppData%\KeePassXC %JUNCTION% %LocalAppData%\KeePassXC Z:\appsw\AppData.Local\KeePassXC
 
 :: AppData.Roaming - VSCode:
 if not exist %AppData%\VSCode %JUNCTION% %AppData%\VSCode Z:\appsw\AppData.Roaming\VSCode
+if not exist %USERPROFILE%\.vscode-oss %JUNCTION% %USERPROFILE%\.vscode-oss Z:\appsw\.vscode-oss
 
 :: Browser - Brave:
-if not exist %LocalAppData%\BraveSoftware %JUNCTION% %LocalAppData%\BraveSoftware Z:\appsw\AppData.Local\BraveSoftware
+rem if not exist %LocalAppData%\BraveSoftware %JUNCTION% %LocalAppData%\BraveSoftware Z:\appsw\AppData.Local\BraveSoftware
 
 :: Browser - Chrome:
-if not exist %LocalAppData%\Google md %LocalAppData%\Google
-if not exist %LocalAppData%\Google\Chrome %JUNCTION% %LocalAppData%\Google\Chrome Z:\appsw\AppData.Local\Google\Chrome
-if not exist %LocalAppData%\Google\Drive %JUNCTION% %LocalAppData%\Google\Drive Z:\appsw\AppData.Local\Google\Drive
+rem if not exist %LocalAppData%\Google md %LocalAppData%\Google
+rem if not exist %LocalAppData%\Google\Chrome %JUNCTION% %LocalAppData%\Google\Chrome Z:\appsw\AppData.Local\Google\Chrome
+rem if not exist %LocalAppData%\Google\Drive %JUNCTION% %LocalAppData%\Google\Drive Z:\appsw\AppData.Local\Google\Drive
 
 :: Browser - Edge:
-if not exist %LocalAppData%\Microsoft md %LocalAppData%\Microsoft
-if not exist %LocalAppData%\Microsoft\Edge %JUNCTION% %LocalAppData%\Microsoft\Edge Z:\appsw\AppData.Local\Microsoft\Edge
+rem if not exist %LocalAppData%\Microsoft md %LocalAppData%\Microsoft
+rem if not exist %LocalAppData%\Microsoft\Edge %JUNCTION% %LocalAppData%\Microsoft\Edge Z:\appsw\AppData.Local\Microsoft\Edge
 
 :: Etcetera:
 
 :: Workspacee (DEV):
+rem if not exist %USERPROFILE%\.ds %JUNCTION% %USERPROFILE%\.ds Z:\appsw\.ds
+rem if not exist %USERPROFILE%\.ds-backups %JUNCTION% %USERPROFILE%\.ds-backups Z:\appsw\.ds-backups
 rem if not exist %USERPROFILE%\workspace %JUNCTION% %USERPROFILE%\workspace %DEV%
 
 pause

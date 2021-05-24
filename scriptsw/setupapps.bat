@@ -24,36 +24,45 @@ if not exist "%PKGWIN%" if exist X:\pkgs-4windows set PKGWIN=X:\pkgs-4windows
 if not exist "%PKGWIN%" if exist Y:\pkgs-4windows set PKGWIN=Y:\pkgs-4windows
 set PKGAPPS=%PKGWIN%\maint\apps
 set PKGDEVEL=%PKGWIN%\devel
+set PKGMAINT=%PKGWIN%\maint
 set PKGOPT=%PKGWIN%\opt
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo setupapps: started setting up applications ...
 
-:: While installers below run, take care of these manually extracted packages:
+echo setupapps: basic packages ...
+%PKGAPPS%\ninite-7zip.exe
+
 %COMSPEC% /c %PKGOPT%\0deploy.bat
 if %computername% == QUINDIM goto :skipquindoptdev
 %COMSPEC% /c %PKGDEVEL%\0zips2myopt.bat
 :skipquindoptdev
 
 :: Ninite application selections:
-if %computername% == RAMBO goto :skiprambonini
-if not %computername% == QUINDIM goto :skipanynini
+if %computername% == QUINDIM goto :niniquind
+if %computername% == RAMBO goto :ninirambo
+goto :niniend
+
+:niniquind
 %PKGAPPS%\ninite-tha.exe
 %PKGAPPS%\ninite-java8.exe
-if %computername% == QUINDIM goto :skipquindnini
+goto :niniend
+
+:ninirambo
 %PKGAPPS%\ninite-base-min.exe
 %PKGAPPS%\ninite-base-desktop-apps.exe
 %PKGAPPS%\ninite-base-internet-apps.exe
 %PKGAPPS%\ninite-java8.exe
 if not exist %PROG32%\Steam                     %PKGAPPS%\ninite-steam.exe
-:skipquindnini
-:skipanynini
+goto :niniend
+
+:niniend
 
 if not exist %PROG32%\Auslogics\"Duplicate File Finder"     %PKGAPPS%\duplicate-file-finder-setup.exe /silent
-if not exist "%ProgramFiles%"\Defraggler        %PKGAPPS%\dfsetup222.exe /silent
-if not exist "%ProgramFiles%"\Eraser            %PKGAPPS%\eraser-5.8.8.exe /silent
-if not exist %PROG32%\GPU-Z                     %PKGAPPS%\GPU-Z.2.21.0.exe
+if not exist "%ProgramFiles%"\Defraggler        %PKGMAINT%\dfsetup222.exe /silent
+if not exist "%ProgramFiles%"\Eraser            %PKGMAINT%\eraser-5.8.8.exe /silent
+if not exist %PROG32%\GPU-Z                     %PKGMAINT%\GPU-Z.2.21.0.exe
 if not exist %PROG32%\No-IP                     %PKGAPPS%\net-noip-DUCSetup_v4_1_1.exe
 if not exist "%ProgramFiles%"\Notepad2          %PKGAPPS%\notepad2x64.exe
 if not exist "%ProgramFiles%"\"Path Copy Copy"  %PKGAPPS%\pathcopy.exe /silent

@@ -5,7 +5,7 @@ set DATA_PATH=K:
 
 :: Mount encrypted partition:
 :loopstart
-if exist Z:\workspace goto :loopend
+if exist Z:\ goto :loopend
 echo Waiting for Z:\ to be mounted...
 "C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%DATA_PATH%\z.tc" /l z /q
 rem "C:\Program Files\VeraCrypt\VeraCrypt.exe" /v "%DATA_PATH%\z.hc" /l z /q

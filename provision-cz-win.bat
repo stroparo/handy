@@ -48,13 +48,26 @@ rem set SEVENFM=%PAROOT%\7-ZipPortable\App\7-Zip\7zFM.exe
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo provision-cz-win: Setting up environment: globals
+
+call %SCRIPTSW%\setupenv.bat
+
+
+:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo provision-cz-win: Copy maintenance assets to the Desktop directory ...
 
-if exist %USERPROFILE%\Desktop\maint goto :okmaint
-echo provision-cz-win: Copying maint directory to the desktop...
+md %USERPROFILE%\Desktop\handy
 md %USERPROFILE%\Desktop\maint
-copy /Y %MAINTDIR%\* %USERPROFILE%\Desktop\maint\
-:okmaint
+robocopy %CWD% %USERPROFILE%\Desktop\handy * /E
+robocopy %MAINTDIR% %USERPROFILE%\Desktop\maint * /E
+
+
+:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo provision-cz-win: Setting applications up ...
+
+%COMSPEC% /c %SCRIPTSW%\setupapps.bat
+@echo provision-cz-win: checkpoint for setupapps.bat
+pause
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -76,20 +89,11 @@ if exist E:\%BASENAMEDRIVERSDIR% explorer E:\%BASENAMEDRIVERSDIR%
 if exist F:\%BASENAMEDRIVERSDIR% explorer F:\%BASENAMEDRIVERSDIR%
 if exist G:\%BASENAMEDRIVERSDIR% explorer G:\%BASENAMEDRIVERSDIR%
 if exist J:\%BASENAMEDRIVERSDIR% explorer J:\%BASENAMEDRIVERSDIR%
+@echo
+@echo provision-cz-win: Install drivers in the explorer window just opened...
+pause
 
 :notrambo
-
-
-:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-echo provision-cz-win: Setting up environment: globals
-
-call %SCRIPTSW%\setupenv.bat
-
-
-:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-echo provision-cz-win: Setting applications up ...
-
-%COMSPEC% /c %SCRIPTSW%\setupapps.bat
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
