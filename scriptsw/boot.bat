@@ -88,9 +88,6 @@ if exist %WSDIR%\handy-mc\conf\moba\MobaXterm.ini set MOBAINI=%WSDIR%\handy-mc\c
 set THROSTOP=%MYOPT%\throttlestop\throttlestop.exe
 
 :: Web
-set BRAVEPATH=%PROG%\BraveSoftware\Brave-Browser\Application\brave.exe
-set CHROMEPATH=%PROG%\Google\Chrome\Application\chrome.exe
-set FIREFOXPATH=%PROG%\"Mozilla Firefox"\firefox.exe
 set SKYPEPATH=%PROG32%\Skype\Phone\Skype.exe
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -120,20 +117,25 @@ timeout 4
 cd %TMP%
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Web - Chrome - Custom user directory
+:: Web browser
 
 rem set PROG=C:\"Program Files"
 rem set PROG32=C:\"Program Files (x86)"
 rem if not exist %PROG32% set PROG32=%PROG%
 
-rem set BROWSEREXPR=brave
-set BROWSEREXPR=chrome
-rem set BROWSEREXPR=firefox
+set BRAVEPATH=%PROG%\BraveSoftware\Brave-Browser\Application\brave.exe
+set CHROMEPATH=%PROG%\Google\Chrome\Application\chrome.exe
+set FIREFOXPATH=%PROG%\"Mozilla Firefox"\firefox.exe
 
+rem set BROWSEREXPR=brave
 rem set BROWSERPATH=%BRAVEPATH%
+
+set BROWSEREXPR=chrome
 set BROWSERPATH=%CHROMEPATH%
-rem set BROWSERPATH=%FIREFOXPATH%
 set BROWSEROPTS=--profile-directory="Default"
+
+rem set BROWSEREXPR=firefox
+rem set BROWSERPATH=%FIREFOXPATH%
 
 tasklist | findstr %BROWSEREXPR% && goto :browserrunning
 rem if exist %BROWSERPATH% start /max %BROWSERPATH%
@@ -141,7 +143,7 @@ if exist %BROWSERPATH% start /max %BROWSERPATH% %BROWSEROPTS%
 :browserrunning
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Globals environment specific
+:: Env specific globals
 
 :: Dropbox
 if exist %DROPBOXHOME% goto :existsdropboxhome
@@ -152,11 +154,15 @@ if exist Z:\Dropbox set DROPBOXHOME=Z:\Dropbox
 
 :: PortableApps
 set PORTABLEPARENT=Z:
-if not exist %PORTABLEPARENT% if exist %DROPBOXHOME%\PortableApps set PORTABLEPARENT=%DROPBOXHOME%
-if not exist %PORTABLEPARENT% if exist %USERPROFILE%\PortableApps set PORTABLEPARENT=%USERPROFILE%
+if not exist %PORTABLEPARENT%\PortableApps if exist %DROPBOXHOME%\PortableApps set PORTABLEPARENT=%DROPBOXHOME%
+if not exist %PORTABLEPARENT%\PortableApps if exist %USERPROFILE%\PortableApps set PORTABLEPARENT=%USERPROFILE%
+
+:: Telegram
+set TGPATH=Z:\optz\Telegram\Telegram.exe
+if exist %TGPATH% start %TGPATH%
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Program execution environment specific
+:: Env specific startup
 
 :: PortableApps
 tasklist | findstr PortableApps || if exist %PORTABLEPARENT%\PortableApps (start %PORTABLEPARENT%\Start.exe)
