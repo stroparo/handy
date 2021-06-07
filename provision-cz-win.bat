@@ -143,8 +143,9 @@ powershell -nologo -ExecutionPolicy Bypass -File %PKGFONTS%\fonts-install.ps1
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 @echo provision-cz-win: Setting up Windows links and preferences (registry and startup) ...
 
-copy /B /Y %SCRIPTSW%\boot-at-z.lnk %USERPROFILE%\Desktop\
-copy /B /Y %SCRIPTSW%\boot-cloud-at-z.lnk %USERPROFILE%\Desktop\
+copy /B /Y %SCRIPTSW%\boot.lnk %USERPROFILE%\Desktop\
+copy /B /Y %SCRIPTSW%\boot-cloud.lnk %USERPROFILE%\Desktop\
+copy /B /Y %SCRIPTSW%\bootpre.lnk %USERPROFILE%\Desktop\
 dir %USERPROFILE%\Desktop\boot*lnk
 
 echo provision-cz-win: regedit importing  %SCRIPTSW%\bootpre.reg
