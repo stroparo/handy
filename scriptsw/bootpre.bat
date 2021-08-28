@@ -1,34 +1,37 @@
 @echo off
 
-set DATA_PATH=K:
+set DATA_PATH=I:
+set DATA_EXTRA1=J:
+set DATA_EXTRA2=P:
 
 
 :: Mount encrypted partition:
-:loopstart
-if exist Z:\ goto :loopend
+:zzck
+if exist Z:\ goto :zzend
+
 echo Waiting for Z:\ to be mounted...
-"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%DATA_PATH%\z.tc" /l z /q
-rem "C:\Program Files\VeraCrypt\VeraCrypt.exe" /v "%DATA_PATH%\z.hc" /l z /q
-timeout 1
-goto :loopstart
-:loopend
+
+if not exist "%DATA_PATH%\zz.tc" goto :nozzatdp
+"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%DATA_PATH%\zz.tc" /l z /q
+goto :zzmount
+:nozzatdp
+
+if not exist "%DATA_EXTRA1%\zz.tc" goto :nozzatx1
+"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%DATA_EXTRA1%\zz.tc" /l z /q
+goto :zzmount
+:nozzatx1
+
+if not exist "%DATA_EXTRA2%\zz.tc" goto :nozzatx2
+"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%DATA_EXTRA2%\zz.tc" /l z /q
+goto :zzmount
+:nozzatx2
+
+:zzmount
+timeout 2
+goto :zzck
+:zzend
 
 
-:: Mount external encrypted partition:
-set KEYF_XENC=Z:\handys\conf\crypt-keyfiles\swordfish
-if not exist %KEYF_XENC% goto :nokeyfx
-
-if not exist I:\xpart.tc goto :noxati
-"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "I:\xpart.tc" /l x /q /k %KEYF_XENC%
-:noxati
-
-if not exist J:\xpart.tc goto :noxatj
-"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "J:\xpart.tc" /l y /q /k %KEYF_XENC%
-:noxatj
-
-:nokeyfx
-
-
-if exist %USERPROFILE%\Desktop\handy\scriptsw\boot.bat start %COMSPEC% /C %USERPROFILE%\Desktop\handy\scriptsw\boot.bat
-if not exist %USERPROFILE%\Desktop\handy\scriptsw\boot.bat start %COMSPEC% /C Z:\workspace\handy\scriptsw\boot.bat
+if exist Z:\workspace\handy\scriptsw\boot.bat start %COMSPEC% /C Z:\workspace\handy\scriptsw\boot.bat
+if not exist Z:\workspace\handy\scriptsw\boot.bat start %COMSPEC% /C %USERPROFILE%\Desktop\handy\scriptsw\boot.bat
 exit
