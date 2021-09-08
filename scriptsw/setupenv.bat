@@ -19,7 +19,7 @@ echo
 set DEV=Z:\workspace
 set GAMESHOME=%ST_DATA_PATH%\games
 set PAROOT=Z:\PortableApps
-set PKGWIN=X:\pkgs-4windows
+set PKGWIN=Z:\pkgs-4windows
 set USERTEMP=%USERPROFILE%\AppData\Local\Temp
 set USERTMP=%USERPROFILE%\AppData\Local\Temp
 :: Cloud:
