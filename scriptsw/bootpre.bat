@@ -1,8 +1,9 @@
 @echo off
 
-set DATA_PATH=I:
+set DATA_PATH=K:
 set DATA_EXTRA1=J:
-set DATA_EXTRA2=P:
+set DATA_EXTRA2=I:
+set DATA_EXTRA3=P:
 
 
 :: Mount encrypted partition:
@@ -25,6 +26,11 @@ if not exist "%DATA_EXTRA2%\zz.tc" goto :nozzatx2
 "C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%DATA_EXTRA2%\zz.tc" /l z /q
 goto :zzmount
 :nozzatx2
+
+if not exist "%DATA_EXTRA3%\zz.tc" goto :nozzatx3
+"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%DATA_EXTRA3%\zz.tc" /l z /q
+goto :zzmount
+:nozzatx3
 
 :zzmount
 timeout 2
