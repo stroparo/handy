@@ -18,30 +18,30 @@ echo SCRIPTSW=%SCRIPTSW%
 dir %SCRIPTSW%
 
 set BASENAMENVIDIA=NVCleanstall_1.9.0.exe
-set BASENAMEDRIVERSDIR=pkgs-drivers
+set BASENAMEDRIVERSDIR=baks\pkgs-drivers
 
-set CRYPT_FILE_BASENAME=z.tc
+set CRYPT_FILE_BASENAME=zz.tc
 if not exist "%ST_DATA_PATH%" set ST_DATA_PATH=K:
 if not exist "%ST_DATA_PATH%" if exist D:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=D:\
 if not exist "%ST_DATA_PATH%" if exist E:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=E:\
 if not exist "%ST_DATA_PATH%" if exist F:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=F:\
 if not exist "%ST_DATA_PATH%" if exist G:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=G:\
+if not exist "%ST_DATA_PATH%" if exist I:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=I:\
+if not exist "%ST_DATA_PATH%" if exist J:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=J:\
 
-set PKGWIN=H:\sp--pkgs-4windows
-if not exist "%PKGWIN%" if exist D:\sp--pkgs-4windows set PKGWIN=D:\sp--pkgs-4windows
-if not exist "%PKGWIN%" if exist E:\sp--pkgs-4windows set PKGWIN=E:\sp--pkgs-4windows
-if not exist "%PKGWIN%" if exist F:\sp--pkgs-4windows set PKGWIN=F:\sp--pkgs-4windows
-if not exist "%PKGWIN%" if exist F:\sp--pkgs-4windows set PKGWIN=G:\sp--pkgs-4windows
-if not exist "%PKGWIN%" if exist J:\sp--pkgs-4windows set PKGWIN=J:\sp--pkgs-4windows
-if not exist "%PKGWIN%" if exist O:\sp--pkgs-4windows set PKGWIN=O:\sp--pkgs-4windows
-if not exist "%PKGWIN%" if exist D:\bakcs\sp--pkgs-4windows set PKGWIN=D:\bakcs\sp--pkgs-4windows
-if not exist "%PKGWIN%" if exist E:\bakcs\sp--pkgs-4windows set PKGWIN=E:\bakcs\sp--pkgs-4windows
-if not exist "%PKGWIN%" if exist F:\bakcs\sp--pkgs-4windows set PKGWIN=F:\bakcs\sp--pkgs-4windows
-if not exist "%PKGWIN%" if exist F:\bakcs\sp--pkgs-4windows set PKGWIN=G:\bakcs\sp--pkgs-4windows
-if not exist "%PKGWIN%" if exist F:\bakcs\sp--pkgs-4windows set PKGWIN=S:\bakcs\sp--pkgs-4windows
+set PKGWIN=Z:\pkgs-4windows
+if not exist "%PKGWIN%" if exist D:\sp--pkgs\pkgs-4windows set PKGWIN=D:\sp--pkgs\pkgs-4windows
+if not exist "%PKGWIN%" if exist E:\sp--pkgs\pkgs-4windows set PKGWIN=E:\sp--pkgs\pkgs-4windows
+if not exist "%PKGWIN%" if exist F:\sp--pkgs\pkgs-4windows set PKGWIN=F:\sp--pkgs\pkgs-4windows
+if not exist "%PKGWIN%" if exist N:\sp--pkgs\pkgs-4windows set PKGWIN=J:\sp--pkgs\pkgs-4windows
+if not exist "%PKGWIN%" if exist O:\sp--pkgs\pkgs-4windows set PKGWIN=O:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist X:\pkgs-4windows set PKGWIN=X:\pkgs-4windows
 if not exist "%PKGWIN%" if exist Y:\pkgs-4windows set PKGWIN=Y:\pkgs-4windows
-set MAINTDIR=%PKGWIN%\maint
+set PKGDEVEL=%PKGWIN%\devel
+set PKGMAINT=%PKGWIN%\maint
+set PKGMISC=%PKGWIN%\maint\misc
+set PKGNINITE=%PKGWIN%\maint\ninite-singletons
+set PKGOPT=%PKGWIN%\opt
 
 rem set PAROOT=Z:\PortableApps
 rem set SEVENFM=%PAROOT%\7-ZipPortable\App\7-Zip\7zFM.exe
@@ -59,7 +59,7 @@ echo provision-cz-win: Copy maintenance assets to the Desktop directory ...
 md %USERPROFILE%\Desktop\handy
 md %USERPROFILE%\Desktop\maint
 robocopy %CWD% %USERPROFILE%\Desktop\handy * /E
-robocopy %MAINTDIR% %USERPROFILE%\Desktop\maint * /E
+robocopy %PKGMAINT% %USERPROFILE%\Desktop\maint * /E
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -80,7 +80,7 @@ if exist "%PROG%\NVIDIA Corporation" goto :oknvidia
 if exist "%PROG32%\NVIDIA Corporation" goto :oknvidia
 if exist "%PROGRAMDATA%\NVIDIA" goto :oknvidia
 if exist "%PROGRAMDATA%\NVIDIA Corporation" goto :oknvidia
-%MAINTDIR%\%BASENAMENVIDIA%
+%PKGMAINT%\%BASENAMENVIDIA%
 :oknvidia
 
 :: Explorer at drivers packages directory
@@ -88,7 +88,9 @@ if exist D:\%BASENAMEDRIVERSDIR% explorer D:\%BASENAMEDRIVERSDIR%
 if exist E:\%BASENAMEDRIVERSDIR% explorer E:\%BASENAMEDRIVERSDIR%
 if exist F:\%BASENAMEDRIVERSDIR% explorer F:\%BASENAMEDRIVERSDIR%
 if exist G:\%BASENAMEDRIVERSDIR% explorer G:\%BASENAMEDRIVERSDIR%
+if exist I:\%BASENAMEDRIVERSDIR% explorer I:\%BASENAMEDRIVERSDIR%
 if exist J:\%BASENAMEDRIVERSDIR% explorer J:\%BASENAMEDRIVERSDIR%
+if exist K:\%BASENAMEDRIVERSDIR% explorer K:\%BASENAMEDRIVERSDIR%
 @echo
 @echo provision-cz-win: Install drivers in the explorer window just opened...
 pause
@@ -107,8 +109,8 @@ goto :endenvpackages
 echo provision-cz-win: Mounting encrypted partition ...
 
 :begincryptcreate
-if exist K:\z.tc goto :okcryptcreate
-echo provision-cz-win: Waiting for K:\z.tc to be created...
+if exist %ST_DATA_PATH%\%CRYPT_FILE_BASENAME% goto :okcryptcreate
+echo provision-cz-win: Waiting for %ST_DATA_PATH%\%CRYPT_FILE_BASENAME% to be created...
 "C:\Program Files\TrueCrypt\TrueCrypt.exe"
 rem "C:\Program Files\VeraCrypt\VeraCrypt.exe"
 timeout 30
