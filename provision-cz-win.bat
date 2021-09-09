@@ -130,7 +130,7 @@ goto :begincrypt
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo provision-cz-win: Setting up environment: junctions
 
-%COMSPEC% /c %SCRIPTSW%\setupjunctions.bat
+rem %COMSPEC% /c %SCRIPTSW%\setupjunctions.bat
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
