@@ -1,0 +1,4 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
+"bootpre"="\"C:\\Users\\dummy\\Desktop\\handy\\scriptsw\\bootpre.bat\""
