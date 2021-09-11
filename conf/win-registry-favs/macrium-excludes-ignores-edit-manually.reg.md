@@ -18,14 +18,21 @@ K:\*.tc /s
 O:\*.tc /s
 C:\nosync\* /s
 C:\Program Files\NVIDIA Corporation\Installer2
+C:\Program Files (x86)\Dropbox\* /s
 C:\Program Files (x86)\Epic Games\* /s
+C:\Program Files (x86)\Microsoft\Skype for Desktop\* /s
 C:\Program Files (x86)\Rockstar Games\* /s
 C:\Program Files (x86)\Steam\steamapps\common\* /s
+C:\Program Files (x86)\Ubisoft\* /s
+C:\ProgramData\Microsoft\Windows Defender\Definition Updates\* /s
+C:\Windows\Installer\* /s
+C:\Windows\SoftwareDistribution\Download\* /s
 C:\Windows\Temp\*.* /s
 C:\Users\user\AppData\Local\CrashDumps\* /s
 C:\Users\user\AppData\Local\Discord\* /s
 C:\Users\user\AppData\Local\EpicGamesLauncher\* /s
 C:\Users\user\AppData\Local\Google\Chrome\* /s
+C:\Users\user\AppData\Local\Microsoft\OneDrive\* /s
 C:\Users\user\AppData\Local\Packages\Canonical*\* /s
 C:\Users\user\AppData\Local\Packages\CanonicalGroupLimited.*\* /s
 C:\Users\user\AppData\Local\Steam\* /s
