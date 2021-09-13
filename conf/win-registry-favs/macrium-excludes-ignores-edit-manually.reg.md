@@ -13,11 +13,14 @@ Type: REG_SZ_MULTI
 Value example:
 
 ```
+C:\hiberfil.sys /s
+C:\pagefile.sys /s
+C:\swapfile.sys /s
 C:\*.tc /s
 K:\*.tc /s
 O:\*.tc /s
 C:\nosync\* /s
-C:\Program Files\NVIDIA Corporation\Installer2
+C:\Program Files\NVIDIA Corporation\Installer2 /s
 C:\Program Files (x86)\Dropbox\* /s
 C:\Program Files (x86)\Epic Games\* /s
 C:\Program Files (x86)\Microsoft\Skype for Desktop\* /s
@@ -58,6 +61,9 @@ K:\Dropbox\* /s
 K:\games\* /s
 K:\msfs\* /s
 K:\ns--cs\* /s
+K:\opt\*.7z /s
+K:\opt\*.zip /s
+K:\opt\cinebench\* /s
 K:\SteamLibrary\* /s
 O:\games\* /s
 O:\ns--cs\* /s
