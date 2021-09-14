@@ -19,13 +19,23 @@ C:\swapfile.sys /s
 C:\*.tc /s
 K:\*.tc /s
 O:\*.tc /s
-C:\nosync\* /s
+C:\games\* /s
+K:\games\* /s
+O:\games\* /s
+C:\ns--cs\* /s
+K:\ns--cs\* /s
+O:\ns--cs\* /s
+C:\Program Files (x86)\Steam\steamapps\common\* /s
+K:\SteamLibrary\* /s
+O:\SteamLibrary\* /s
+C:\tmp\* /s
+K:\tmp\* /s
+O:\tmp\* /s
 C:\Program Files\NVIDIA Corporation\Installer2 /s
 C:\Program Files (x86)\Dropbox\* /s
 C:\Program Files (x86)\Epic Games\* /s
 C:\Program Files (x86)\Microsoft\Skype for Desktop\* /s
 C:\Program Files (x86)\Rockstar Games\* /s
-C:\Program Files (x86)\Steam\steamapps\common\* /s
 C:\Program Files (x86)\Ubisoft\* /s
 C:\ProgramData\Microsoft\Windows Defender\Definition Updates\* /s
 C:\Windows\Installer\* /s
@@ -58,15 +68,9 @@ C:\Users\user\OneDrive\* /s
 C:\Users\user\OneDriveTemp\* /s
 K:\cstm\* /s
 K:\Dropbox\* /s
-K:\games\* /s
 K:\msfs\* /s
-K:\ns--cs\* /s
 K:\opt\*.7z /s
 K:\opt\*.zip /s
 K:\opt\cinebench\* /s
-K:\SteamLibrary\* /s
-O:\games\* /s
-O:\ns--cs\* /s
-O:\SteamLibrary\* /s
 
 ```
