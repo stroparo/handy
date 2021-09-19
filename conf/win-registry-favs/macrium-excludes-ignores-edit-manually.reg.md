@@ -31,7 +31,7 @@ O:\SteamLibrary\* /s
 C:\tmp\* /s
 K:\tmp\* /s
 O:\tmp\* /s
-C:\Program Files\NVIDIA Corporation\Installer2 /s
+C:\Program Files\NVIDIA Corporation\Installer2\* /s
 C:\Program Files (x86)\Dropbox\* /s
 C:\Program Files (x86)\Epic Games\* /s
 C:\Program Files (x86)\Microsoft\Skype for Desktop\* /s
