@@ -4,7 +4,7 @@
     <!-- <volume mountpoint="Z:\" label="Z-from-C.Users.user" mountOnLogOn="1">C:\Users\user\zz.tc</volume> -->
     <!-- <volume mountpoint="Z:\" label="Z-from-D" mountOnLogOn="1" mountOnArrival="1">D:\zz.tc</volume> -->
     <!-- <volume mountpoint="Z:\" label="Z-from-E" mountOnLogOn="1" mountOnArrival="1">E:\zz.tc</volume> -->
-    <volume mountpoint="X:\" label="Z (X-from-I)" mountOnArrival="1">I:\zzbak.tc</volume>
+    <volume mountpoint="X:\" label="Z (X-from-I)" mountOnLogOn="1" mountOnArrival="1">I:\zzbak.tc</volume>
     <volume mountpoint="Y:\" label="Z (Y-from-J)">J:\zzbak.tc</volume>
     <volume mountpoint="W:\" label="Z (W-from-R)">R:\zzbak.tc</volume>
     <volume mountpoint="Z:\" label="Z-from-K">K:\zz.tc</volume>
