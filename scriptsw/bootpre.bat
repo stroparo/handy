@@ -40,4 +40,7 @@ goto :zzck
 
 if exist Z:\workspace\handy\scriptsw\boot.bat start %COMSPEC% /C Z:\workspace\handy\scriptsw\boot.bat
 if not exist Z:\workspace\handy\scriptsw\boot.bat start %COMSPEC% /C %USERPROFILE%\Desktop\handy\scriptsw\boot.bat
+
+if exist Z:\handys\scriptsw\bootsec.bat %COMSPEC% /c Z:\handys\scriptsw\bootsec.bat
+
 exit

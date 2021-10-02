@@ -72,8 +72,11 @@ set MCLYNC=%OF16LYNC%
 set MCONENOT=%OF16ONEN%
 set MCOUTLOO=%OF16OUTL%
 
+:: Peripherals
+set MONACER=%PROG32%\Acer\"Acer Display Widget"\"Acer Display Widget.exe"
+set MOUSEFRT=%PROG32%\"Fortrek M5 PRO GAMING MOUSE"\"Gaming Mouse.exe"
+
 :: Sec
-set MYKEEPASS=%MYOPT%\keepassxc\KeePassXC.exe
 set MYPAGEANT=%MYOPT%\puttycm\putty\pageant.exe
 
 :: Terminal emulators
@@ -103,8 +106,9 @@ tasklist | findstr "Everything.*Console" || if exist %EVTHOPT% (start %EVTHOPT%)
 set AHKWPR=%HANDYSDIR%\macros\wpr.ahk
 if exist %AHKPROG% if exist %AHKWPR% start %AHKPROG% %AHKWPR%
 
-:: Sec
-tasklist | findstr KeePassXC || if exist %MYKEEPASS% start /max %MYKEEPASS%
+:: Peripherals
+tasklist | findstr /C:"Acer Display Widget" || if exist %MONACER% start /min %MONACER%
+tasklist | findstr /C:"Gaming Mouse" || if exist %MOUSEFRT% start /min %MOUSEFRT%
 
 :: Terminal - ConEmu
 rem cd %WSDIR%
