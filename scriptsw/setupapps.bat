@@ -12,8 +12,8 @@ set PKGWIN=Z:\pkgs-4windows
 if not exist "%PKGWIN%" if exist D:\sp--pkgs\pkgs-4windows set PKGWIN=D:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist E:\sp--pkgs\pkgs-4windows set PKGWIN=E:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist F:\sp--pkgs\pkgs-4windows set PKGWIN=F:\sp--pkgs\pkgs-4windows
-if not exist "%PKGWIN%" if exist N:\sp--pkgs\pkgs-4windows set PKGWIN=J:\sp--pkgs\pkgs-4windows
-if not exist "%PKGWIN%" if exist O:\sp--pkgs\pkgs-4windows set PKGWIN=O:\sp--pkgs\pkgs-4windows
+if not exist "%PKGWIN%" if exist M:\sp--pkgs\pkgs-4windows set PKGWIN=M:\sp--pkgs\pkgs-4windows
+if not exist "%PKGWIN%" if exist N:\sp--pkgs\pkgs-4windows set PKGWIN=N:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist X:\pkgs-4windows set PKGWIN=X:\pkgs-4windows
 if not exist "%PKGWIN%" if exist Y:\pkgs-4windows set PKGWIN=Y:\pkgs-4windows
 set PKGDEVEL=%PKGWIN%\devel
@@ -35,7 +35,7 @@ if %computername% == QUINDIM goto :skipquindoptdev
 :skipquindoptdev
 
 :: Ninite application selections:
-%PKGMAINT%\"Ninite 7Zip KLite Codecs WinDirStat WinMerge Installer.exe"
+%PKGMAINT%\"ninite.exe"
 if %computername% == QUINDIM goto :niniquind
 if %computername% == RAMBO goto :ninirambo
 goto :niniend
@@ -48,8 +48,8 @@ goto :niniend
 goto :niniend
 
 :ninirambo
-%PKGMAINT%\"Ninite Discord Skype Zoom Installer.exe"
-%PKGMAINT%\"Ninite Dropbox Google Backup and Sync qBittorrent Installer.exe"
+%PKGMAINT%\"ninitecomm.exe"
+%PKGMAINT%\"ninitecloud.exe"
 %PKGNINITE%\ninite-java8.exe
 if not exist %PROG32%\Steam                     %PKGNINITE%\"Ninite Steam Installer.exe"
 goto :niniend
