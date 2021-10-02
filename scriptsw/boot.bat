@@ -8,8 +8,8 @@ set PROG=C:\"Program Files"
 set PROG32=C:\"Program Files (x86)"
 if not exist %PROG32% set PROG32=%PROG%
 
-if "%ST_DATA_PATH%\" == "\" set ST_DATA_PATH=K:
-if "%MYOPT%" == "" set MYOPT=%ST_DATA_PATH%\opt
+if "%STDIRDATA%\" == "\" set STDIRDATA=K:
+if "%MYOPT%" == "" set MYOPT=%STDIRDATA%\opt
 
 :: Working dirs - workspace
 set WSDIR=%DEV%

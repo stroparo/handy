@@ -17,34 +17,30 @@ set SCRIPTSW=%CWD%\scriptsw
 echo SCRIPTSW=%SCRIPTSW%
 dir %SCRIPTSW%
 
-set BASENAMENVIDIA=NVCleanstall_1.9.0.exe
-set BASENAMEDRIVERSDIR=baks\pkgs-drivers
-
 set CRYPT_FILE_BASENAME=zz.tc
-if not exist "%ST_DATA_PATH%" set ST_DATA_PATH=K:
-if not exist "%ST_DATA_PATH%" if exist D:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=D:\
-if not exist "%ST_DATA_PATH%" if exist E:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=E:\
-if not exist "%ST_DATA_PATH%" if exist F:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=F:\
-if not exist "%ST_DATA_PATH%" if exist G:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=G:\
-if not exist "%ST_DATA_PATH%" if exist I:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=I:\
-if not exist "%ST_DATA_PATH%" if exist J:\%CRYPT_FILE_BASENAME% set ST_DATA_PATH=J:\
+if not exist "%STDIRDATA%" set STDIRDATA=K:
+if not exist "%STDIRDATA%" if exist D:\%CRYPT_FILE_BASENAME% set STDIRDATA=D:\
+if not exist "%STDIRDATA%" if exist E:\%CRYPT_FILE_BASENAME% set STDIRDATA=E:\
+if not exist "%STDIRDATA%" if exist F:\%CRYPT_FILE_BASENAME% set STDIRDATA=F:\
+if not exist "%STDIRDATA%" if exist I:\%CRYPT_FILE_BASENAME% set STDIRDATA=I:\
+if not exist "%STDIRDATA%" if exist J:\%CRYPT_FILE_BASENAME% set STDIRDATA=J:\
 
 set PKGWIN=Z:\pkgs-4windows
 if not exist "%PKGWIN%" if exist D:\sp--pkgs\pkgs-4windows set PKGWIN=D:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist E:\sp--pkgs\pkgs-4windows set PKGWIN=E:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist F:\sp--pkgs\pkgs-4windows set PKGWIN=F:\sp--pkgs\pkgs-4windows
-if not exist "%PKGWIN%" if exist N:\sp--pkgs\pkgs-4windows set PKGWIN=J:\sp--pkgs\pkgs-4windows
-if not exist "%PKGWIN%" if exist O:\sp--pkgs\pkgs-4windows set PKGWIN=O:\sp--pkgs\pkgs-4windows
+if not exist "%PKGWIN%" if exist I:\sp--pkgs\pkgs-4windows set PKGWIN=I:\sp--pkgs\pkgs-4windows
+if not exist "%PKGWIN%" if exist J:\sp--pkgs\pkgs-4windows set PKGWIN=J:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist X:\pkgs-4windows set PKGWIN=X:\pkgs-4windows
 if not exist "%PKGWIN%" if exist Y:\pkgs-4windows set PKGWIN=Y:\pkgs-4windows
-set PKGDEVEL=%PKGWIN%\devel
 set PKGMAINT=%PKGWIN%\maint
 set PKGMISC=%PKGWIN%\maint\misc
-set PKGNINITE=%PKGWIN%\maint\ninite-singletons
-set PKGOPT=%PKGWIN%\opt
 
 rem set PAROOT=Z:\PortableApps
 rem set SEVENFM=%PAROOT%\7-ZipPortable\App\7-Zip\7zFM.exe
+
+set BASENAMENVIDIA=NVCleanstall_1.10.0.exe
+set BASENAMEDRIVERSDIR=dataxcstm\pkgs-drivers
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -80,17 +76,15 @@ if exist "%PROG%\NVIDIA Corporation" goto :oknvidia
 if exist "%PROG32%\NVIDIA Corporation" goto :oknvidia
 if exist "%PROGRAMDATA%\NVIDIA" goto :oknvidia
 if exist "%PROGRAMDATA%\NVIDIA Corporation" goto :oknvidia
-%PKGMAINT%\%BASENAMENVIDIA%
+rem %PKGMISC%\%BASENAMENVIDIA%
 :oknvidia
 
 :: Explorer at drivers packages directory
 if exist D:\%BASENAMEDRIVERSDIR% explorer D:\%BASENAMEDRIVERSDIR%
 if exist E:\%BASENAMEDRIVERSDIR% explorer E:\%BASENAMEDRIVERSDIR%
 if exist F:\%BASENAMEDRIVERSDIR% explorer F:\%BASENAMEDRIVERSDIR%
-if exist G:\%BASENAMEDRIVERSDIR% explorer G:\%BASENAMEDRIVERSDIR%
 if exist I:\%BASENAMEDRIVERSDIR% explorer I:\%BASENAMEDRIVERSDIR%
 if exist J:\%BASENAMEDRIVERSDIR% explorer J:\%BASENAMEDRIVERSDIR%
-if exist K:\%BASENAMEDRIVERSDIR% explorer K:\%BASENAMEDRIVERSDIR%
 @echo
 @echo provision-cz-win: Install drivers in the explorer window just opened...
 pause
@@ -109,8 +103,8 @@ goto :endenvpackages
 echo provision-cz-win: Mounting encrypted partition ...
 
 :begincryptcreate
-if exist %ST_DATA_PATH%\%CRYPT_FILE_BASENAME% goto :okcryptcreate
-echo provision-cz-win: Waiting for %ST_DATA_PATH%\%CRYPT_FILE_BASENAME% to be created...
+if exist %STDIRDATA%\%CRYPT_FILE_BASENAME% goto :okcryptcreate
+echo provision-cz-win: Waiting for %STDIRDATA%\%CRYPT_FILE_BASENAME% to be created...
 "C:\Program Files\TrueCrypt\TrueCrypt.exe"
 rem "C:\Program Files\VeraCrypt\VeraCrypt.exe"
 timeout 30
@@ -120,35 +114,39 @@ goto :begincryptcreate
 :begincrypt
 if exist Z:\ goto :okcrypt
 echo provision-cz-win: Waiting for Z:\ to be mounted...
-"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%ST_DATA_PATH%\%CRYPT_FILE_BASENAME%" /l z /q /e
-rem "C:\Program Files\VeraCrypt\VeraCrypt.exe" /tc /v "%ST_DATA_PATH%\%CRYPT_FILE_BASENAME%" /l z /q /e
+"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%STDIRDATA%\%CRYPT_FILE_BASENAME%" /l z /q /e
+rem "C:\Program Files\VeraCrypt\VeraCrypt.exe" /tc /v "%STDIRDATA%\%CRYPT_FILE_BASENAME%" /l z /q /e
 timeout 1
 goto :begincrypt
 :okcrypt
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-echo provision-cz-win: Setting up environment: junctions
+rem @echo provision-cz-win: Setting up environment: junctions
 
 rem %COMSPEC% /c %SCRIPTSW%\setupjunctions.bat
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Fonts installation
+@echo provision-cz-win: Setting up fonts...
 
 if exist "%LocalAppData%\MICROSOFT\Windows\Fonts\DROID SANS MONO DOTTED FOR POWERLINE.TTF" goto :okfonts
-echo provision-cz-win: Installing fonts...
 powershell -nologo -ExecutionPolicy Bypass -File %PKGFONTS%\fonts-install.ps1
 :okfonts
+echo provision-cz-win: Fonts installed.
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-@echo provision-cz-win: Setting up Windows links and preferences (registry and startup) ...
+@echo provision-cz-win: Setting up Windows shortcut links in the Desktop ...
 
 copy /B /Y %SCRIPTSW%\boot.lnk %USERPROFILE%\Desktop\
 copy /B /Y %SCRIPTSW%\boot-cloud.lnk %USERPROFILE%\Desktop\
 copy /B /Y %SCRIPTSW%\bootpre.lnk %USERPROFILE%\Desktop\
+copy /B /Y %SCRIPTSW%\bootsec.lnk %USERPROFILE%\Desktop\
 dir %USERPROFILE%\Desktop\boot*lnk
+
+:: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+@echo provision-cz-win: Setting up system preferences and startup via registry ...
 
 echo provision-cz-win: regedit importing  %SCRIPTSW%\bootpre.reg
 regedit /S %SCRIPTSW%\bootpre.reg

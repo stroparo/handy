@@ -3,8 +3,8 @@
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Globals
 
-if "%ST_DATA_PATH%\" == "\" set ST_DATA_PATH=K:
-if "%MYOPT%" == "" set MYOPT=%ST_DATA_PATH%\opt
+if "%STDIRDATA%\" == "\" set STDIRDATA=K:
+if "%MYOPT%" == "" set MYOPT=%STDIRDATA%\opt
 if not exist %MYOPT% md %MYOPT%
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -12,35 +12,39 @@ echo Settings up globals in userspace (SETX) ...
 
 echo
 echo MYOPT=%MYOPT%
-echo ST_DATA_PATH=%ST_DATA_PATH%
+echo STDIRDATA=%STDIRDATA%
 echo
 
 :: Local env globals setup (this execution env):
 set DEV=Z:\workspace
-set GAMESHOME=%ST_DATA_PATH%\games
-set PAROOT=Z:\PortableApps
-set PKGWIN=Z:\pkgs-4windows
+set STDIRPROGS=O:
+set STDIRSYNC=Z:\datacssync
+
+:: Local env globals, derived from other globals:
+set GAMESHOME=%STDIRDATA%\games
+set PAROOT=%STDIRPROGS%\PortableApps
+set PKGWIN=%STDIRSYNC%\pkgs-4windows
 set USERTEMP=%USERPROFILE%\AppData\Local\Temp
 set USERTMP=%USERPROFILE%\AppData\Local\Temp
 :: Cloud:
-set DROPBOXHOME="K:\Dropbox"
-set GGLDRIVEHOME="Z:\gdrive"
-set ONEDRIVEHOME="%USERPROFILE%\OneDrive"
+set DROPBOXHOME=%STDIRDATA%\Dropbox
+set GGLDRIVEHOME=G:\My Drive
+set ONEDRIVEHOME=%STDIRDATA%\OneDrive
 
 :: User env globals setup (Windows userspace, permanent):
 @echo on
 SETX DEV "%DEV%"
-SETX GAMESHOME "%ST_DATA_PATH%\games"
+SETX GAMESHOME "%GAMESHOME%"
 SETX MYOPT "%MYOPT%"
 SETX PAROOT "%PAROOT%"
 SETX PKGWIN "%PKGWIN%"
-SETX ST_DATA_PATH "%ST_DATA_PATH%"
+SETX STDIRDATA "%STDIRDATA%"
 SETX USERTEMP "%USERTEMP%"
 SETX USERTMP "%USERTMP%"
 :: Cloud:
-SETX DROPBOXHOME "K:\Dropbox"
-SETX GGLDRIVEHOME "Z:\gdrive"
-SETX ONEDRIVEHOME "%USERPROFILE%\OneDrive"
+SETX DROPBOXHOME "%DROPBOXHOME%"
+SETX GGLDRIVEHOME "%GGLDRIVEHOME%"
+SETX ONEDRIVEHOME "%ONEDRIVEHOME%"
 @echo off
 
 :: PATH global:
@@ -73,7 +77,7 @@ echo SETX (global environment variables) definitions COMPLETE.
 echo
 echo IMPORTANT (DOUBLE CONFIRMATION BELOW)
 echo IMPORTANT (DOUBLE CONFIRMATION BELOW)
-echo If globals have new values (e.g. pristine host) please terminate this script and rerun...
-echo If globals have new values (e.g. pristine host) please terminate this script and rerun...
+echo If globals changed (e.g. pristine host) terminate this set of scripts and rerun...
+echo If globals changed (e.g. pristine host) terminate this set of scripts and rerun...
 pause
 pause
