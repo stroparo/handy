@@ -46,6 +46,7 @@ C:\Users\user\AppData\Local\Discord\* /s
 C:\Users\user\AppData\Local\EpicGamesLauncher\* /s
 C:\Users\user\AppData\Local\Google\Chrome\* /s
 C:\Users\user\AppData\Local\Microsoft\OneDrive\* /s
+C:\Users\user\AppData\Local\Mozilla\Firefox\Profiles\* /s
 C:\Users\user\AppData\Local\Packages\Canonical*\* /s
 C:\Users\user\AppData\Local\Packages\CanonicalGroupLimited.*\* /s
 C:\Users\user\AppData\Local\Steam\* /s
@@ -56,6 +57,7 @@ C:\Users\user\AppData\Roaming\Code\* /s
 C:\Users\user\AppData\Roaming\discord\* /s
 C:\Users\user\AppData\Roaming\Microsoft\Skype for Desktop\* /s
 C:\Users\user\AppData\Roaming\Microsoft Flight Simulator\ROLLINGCACHE.CCC /s
+C:\Users\user\AppData\Roaming\Mozilla\Firefox\Profiles\* /s
 C:\Users\user\AppData\Roaming\obs-studio\* /s
 C:\Users\user\AppData\Roaming\SimBrief Downloader\* /s
 C:\Users\user\AppData\Roaming\WhatsApp\* /s
