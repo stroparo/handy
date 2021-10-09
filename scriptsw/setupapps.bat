@@ -8,7 +8,8 @@ set PROG=C:\"Program Files"
 set PROG32=C:\"Program Files (x86)"
 if not exist %PROG32% set PROG32=%PROG%
 
-set PKGWIN=Z:\pkgs-4windows
+set PKGWINREG=Z:\datacssync\pkgs-4windows-registered
+set PKGWIN=Z:\datacssync\pkgs-4windows
 if not exist "%PKGWIN%" if exist D:\sp--pkgs\pkgs-4windows set PKGWIN=D:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist E:\sp--pkgs\pkgs-4windows set PKGWIN=E:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist F:\sp--pkgs\pkgs-4windows set PKGWIN=F:\sp--pkgs\pkgs-4windows
@@ -30,9 +31,9 @@ echo setupapps: basic packages ...
 %PKGNINITE%\"Ninite 7Zip Installer.exe"
 
 %COMSPEC% /c %PKGOPT%\0deploy.bat
-if %computername% == QUINDIM goto :skipquindoptdev
+if not %computername% == RAMBO goto :skipnonrambo
 %COMSPEC% /c %PKGDEVEL%\0zips2myopt.bat
-:skipquindoptdev
+:skipnonrambo
 
 :: Ninite application selections:
 %PKGMAINT%\"ninite.exe"
@@ -74,9 +75,9 @@ rem %PKGEXTRA%\PortableGit-2.28.0-64-bit.7z.exe
 rem %PKGEXTRA%\VPN_Unlimited_v7.4.exe /SP- /VERYSILENT /NORESTART
 
 :: Macrium FS backup
-if not exist "%ProgramFiles%"\Macrium Z:\pkgs-4windows-registered\macrium-free.exe
+if not exist "%ProgramFiles%"\Macrium %PKGWINREG%\macrium-free.exe
+if not exist "%ProgramFiles%"\Macrium if exist M:\sp--pkgs\macrium-free.exe M:\sp--pkgs\macrium-free.exe
 if not exist "%ProgramFiles%"\Macrium if exist N:\sp--pkgs\macrium-free.exe N:\sp--pkgs\macrium-free.exe
-if not exist "%ProgramFiles%"\Macrium if exist O:\sp--pkgs\macrium-free.exe O:\sp--pkgs\macrium-free.exe
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
