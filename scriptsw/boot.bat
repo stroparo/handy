@@ -92,6 +92,7 @@ set THROSTOP=%MYOPT%\throttlestop\throttlestop.exe
 
 :: Web
 set SKYPEPATH=%PROG32%\Skype\Phone\Skype.exe
+set WALNK=%LOCALAPPDATA%\WhatsApp\app-2.2134.10\WhatsApp.exe
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Env agnostic stuff
@@ -116,6 +117,9 @@ rem tasklist | findstr ConEmu || if exist %CONEMU% start %CONEMU% -Max
 
 :: Tuning
 rem tasklist | findstr ThrottleStop || if exist %THROSTOP% (start %THROSTOP%)
+
+:: Other apps
+tasklist | findstr WhatsApp || if exist %WALNK% start /min %WALNK%
 
 timeout 4
 cd %TMP%
