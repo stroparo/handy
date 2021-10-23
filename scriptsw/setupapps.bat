@@ -8,8 +8,8 @@ set PROG=C:\"Program Files"
 set PROG32=C:\"Program Files (x86)"
 if not exist %PROG32% set PROG32=%PROG%
 
-set PKGWINREG=Z:\datacssync\pkgs-4windows-registered
-set PKGWIN=Z:\datacssync\pkgs-4windows
+set PKGWINREG=%STDIRSYNC%\pkgs-4windows-registered
+set PKGWIN=%STDIRSYNC%\pkgs-4windows
 if not exist "%PKGWIN%" if exist D:\sp--pkgs\pkgs-4windows set PKGWIN=D:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist E:\sp--pkgs\pkgs-4windows set PKGWIN=E:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist F:\sp--pkgs\pkgs-4windows set PKGWIN=F:\sp--pkgs\pkgs-4windows

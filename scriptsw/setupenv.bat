@@ -18,7 +18,7 @@ echo
 :: Local env globals setup (this execution env):
 set DEV=Z:\workspace
 set STDIRPROGS=O:
-set STDIRSYNC=Z:\datacssync
+set STDIRSYNC=Z:\datacsyn
 
 :: Local env globals, derived from other globals:
 set GAMESHOME=%STDIRDATA%\games
@@ -39,6 +39,7 @@ SETX MYOPT "%MYOPT%"
 SETX PAROOT "%PAROOT%"
 SETX PKGWIN "%PKGWIN%"
 SETX STDIRDATA "%STDIRDATA%"
+SETX STDIRSYNC "%STDIRSYNC%"
 SETX USERTEMP "%USERTEMP%"
 SETX USERTMP "%USERTMP%"
 :: Cloud:
