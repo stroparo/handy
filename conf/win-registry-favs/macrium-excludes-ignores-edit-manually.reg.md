@@ -16,6 +16,9 @@ Value example:
 C:\hiberfil.sys /s
 C:\pagefile.sys /s
 C:\swapfile.sys /s
+C:\*.hc /s
+K:\*.hc /s
+O:\*.hc /s
 C:\*.tc /s
 K:\*.tc /s
 O:\*.tc /s
@@ -31,6 +34,20 @@ O:\SteamLibrary\* /s
 C:\tmp\* /s
 K:\tmp\* /s
 O:\tmp\* /s
+K:\blizzard\* /s
+K:\Epic Games\* /s
+K:\gog\* /s
+K:\msfs\* /s
+K:\msfscache\* /s
+K:\msfs-cache\* /s
+K:\cstm\* /s
+K:\DriveFS\* /s
+K:\Dropbox\* /s
+K:\OneDrive\* /s
+K:\OneDriveTemp\* /s
+K:\opt\*.7z /s
+K:\opt\*.zip /s
+K:\opt\cinebench\* /s
 C:\Program Files\LibreOffice\* /s
 C:\Program Files\NVIDIA Corporation\Installer2\* /s
 C:\Program Files (x86)\Dropbox\* /s
@@ -69,11 +86,5 @@ C:\Users\user\Dropbox\* /s
 C:\Users\user\nosync\* /s
 C:\Users\user\OneDrive\* /s
 C:\Users\user\OneDriveTemp\* /s
-K:\cstm\* /s
-K:\Dropbox\* /s
-K:\msfs\* /s
-K:\opt\*.7z /s
-K:\opt\*.zip /s
-K:\opt\cinebench\* /s
 
 ```
