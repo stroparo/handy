@@ -24,12 +24,14 @@ K:\*.tc /s
 O:\*.tc /s
 C:\games\* /s
 K:\games\* /s
+L:\games\* /s
 O:\games\* /s
 C:\ns--cs\* /s
 K:\ns--cs\* /s
 O:\ns--cs\* /s
 C:\Program Files (x86)\Steam\steamapps\common\* /s
 K:\SteamLibrary\* /s
+L:\SteamLibrary\* /s
 O:\SteamLibrary\* /s
 C:\tmp\* /s
 K:\tmp\* /s
