@@ -1,6 +1,14 @@
 @echo off
 
+rem set CRYPT_PROG="C:\Program Files\TrueCrypt\TrueCrypt.exe"
+rem set CRYPT_EXTENSION=tc
+rem set CRYPT_OPTIONS=
+set CRYPT_PROG="C:\Program Files\VeraCrypt\VeraCrypt.exe"
+set CRYPT_EXTENSION=hc
+rem set CRYPT_OPTIONS=/tc
+
 set DATA_PATH=K:
+set DATA_EXTRA0=C:\Users\user
 set DATA_EXTRA1=J:
 set DATA_EXTRA2=I:
 set DATA_EXTRA3=P:
@@ -12,23 +20,28 @@ if exist Z:\ goto :zzend
 
 echo Waiting for Z:\ to be mounted...
 
-if not exist "%DATA_PATH%\zz.tc" goto :nozzatdp
-"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%DATA_PATH%\zz.tc" /l z /q
+if not exist "%DATA_PATH%\zz.%CRYPT_EXTENSION%" goto :nozzatdp
+%CRYPT_PROG% %CRYPT_OPTIONS% /v "%DATA_PATH%\zz.%CRYPT_EXTENSION%" /l z /q
 goto :zzmount
 :nozzatdp
 
-if not exist "%DATA_EXTRA1%\zz.tc" goto :nozzatx1
-"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%DATA_EXTRA1%\zz.tc" /l z /q
+if not exist "%DATA_EXTRA0%\zz.%CRYPT_EXTENSION%" goto :nozzatx1
+%CRYPT_PROG% %CRYPT_OPTIONS% /v "%DATA_EXTRA0%\zz.%CRYPT_EXTENSION%" /l z /q
+goto :zzmount
+:nozzatx0
+
+if not exist "%DATA_EXTRA1%\zz.%CRYPT_EXTENSION%" goto :nozzatx1
+%CRYPT_PROG% %CRYPT_OPTIONS% /v "%DATA_EXTRA1%\zz.%CRYPT_EXTENSION%" /l z /q
 goto :zzmount
 :nozzatx1
 
-if not exist "%DATA_EXTRA2%\zz.tc" goto :nozzatx2
-"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%DATA_EXTRA2%\zz.tc" /l z /q
+if not exist "%DATA_EXTRA2%\zz.%CRYPT_EXTENSION%" goto :nozzatx2
+%CRYPT_PROG% %CRYPT_OPTIONS% /v "%DATA_EXTRA2%\zz.%CRYPT_EXTENSION%" /l z /q
 goto :zzmount
 :nozzatx2
 
-if not exist "%DATA_EXTRA3%\zz.tc" goto :nozzatx3
-"C:\Program Files\TrueCrypt\TrueCrypt.exe" /v "%DATA_EXTRA3%\zz.tc" /l z /q
+if not exist "%DATA_EXTRA3%\zz.%CRYPT_EXTENSION%" goto :nozzatx3
+%CRYPT_PROG% %CRYPT_OPTIONS% /v "%DATA_EXTRA3%\zz.%CRYPT_EXTENSION%" /l z /q
 goto :zzmount
 :nozzatx3
 

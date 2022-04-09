@@ -10,7 +10,7 @@ SetTitleMatchMode, 2 ; contain title
 ; Basic - runr
 ::zzrunr::bash -c "$(curl -LSf "https://bitbucket.org/stroparo/runr/raw/master/entry.sh" || curl -LSf "https://raw.githubusercontent.com/stroparo/runr/master/entry.sh")" entry.sh{Space}
 ::zzalias::bash -c "$(curl -LSf "https://bitbucket.org/stroparo/runr/raw/master/entry.sh" || curl -LSf "https://raw.githubusercontent.com/stroparo/runr/master/entry.sh")" entry.sh alias {;} . ~/.aliases-cs{ENTER}
-::zzds::bash -c "$(curl -LSf "https://bitbucket.org/stroparo/runr/raw/master/entry.sh" || curl -LSf "https://raw.githubusercontent.com/stroparo/runr/master/entry.sh")" entry.sh alias setupds {;} . ~/.aliases-cs {;} . ~/.ds/ds.sh ~/.ds{ENTER}
+::zzds::bash -c "$(curl -LSf "https://bitbucket.org/stroparo/runr/raw/master/entry.sh" || curl -LSf "https://raw.githubusercontent.com/stroparo/runr/master/entry.sh")" entry.sh alias setupsidra {;} . ~/.aliases-cs {;} . ~/.zdra/zdra.sh ~/.zdra{ENTER}
 ::zzssh::bash -c "$(curl -LSf "https://bitbucket.org/stroparo/runr/raw/master/entry.sh" || curl -LSf "https://raw.githubusercontent.com/stroparo/runr/master/entry.sh")" entry.sh sshkeygen sshmodes {;} . ~/.aliases-cs{ENTER}
 
 ; Loops

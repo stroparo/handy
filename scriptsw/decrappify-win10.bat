@@ -5,8 +5,9 @@
 :: https://www.pcerror-fix.com/windows-10-services-to-disable-for-gaming
 :: https://www.reginout.com/help-center/turn-off-windows-10-services-get-unfair-speed-boost/
 
+:: Disabled in here, now in batch script in (\handy)\conf\win-registry-favs\w10-memory-compression-disable-run-as-admin.bat
 :: Disable CPU-hogging memory (RAM) compression:
-powershell "Disable-MMAgent -mc"
+rem powershell "Disable-MMAgent -mc"
 
 :: Geoloc
 sc config lfsvc start= disabled
@@ -55,8 +56,8 @@ sc config WSearch start= disabled
 sc stop   WSearch
 
 :: Work environment / Corporate
-sc config Netlogon start= disabled
-sc stop   Netlogon
+rem sc config Netlogon start= disabled
+rem sc stop   Netlogon
 
 :: XBOX
 rem sc config XblAuthManager start= disabled

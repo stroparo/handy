@@ -39,13 +39,11 @@ set AHK32=%MYOPT%\autohotkey\AutoHotkeyU32.exe
 if not exist C:\"Program Files (x86)" set AHKPROG=%AHK32%
 set AHKCO=%HANDYDIR%\conf\ahk\common.ahk
 set AHKPE=%HANDYSDIR%\macros\personal.ahk
-set AHKUN=%HANDYDIR%\conf\ahk\unixcommands.ahk
 
 if not exist %AHKPROG% (goto :noahk)
 tasklist | findstr AutoHotkey && goto :noahk
 if exist %AHKCO% start %AHKPROG% %AHKCO%
 if exist %AHKPE% start %AHKPROG% %AHKPE%
-if exist %AHKUN% start %AHKPROG% %AHKUN%
 :noahk
 
 :: Office
@@ -104,8 +102,8 @@ tasklist | findstr Launchy || if exist %LCHYOPT% (start %LCHYOPT%) else (if exis
 tasklist | findstr "Everything.*Console" || if exist %EVTHOPT% (start %EVTHOPT%) else (if exist %EVTH% start %EVTH%)
 
 :: Other macros
-set AHKWPR=%HANDYSDIR%\macros\wpr.ahk
-if exist %AHKPROG% if exist %AHKWPR% start %AHKPROG% %AHKWPR%
+set AHKETC=%HANDYSDIR%\macros\etc.ahk
+if exist %AHKPROG% if exist %AHKETC% start %AHKPROG% %AHKETC%
 
 :: Peripherals
 tasklist | findstr /C:"Acer Display Widget" || if exist %MONACER% start /min %MONACER%
@@ -135,19 +133,21 @@ set BRAVEPATH=%PROG%\BraveSoftware\Brave-Browser\Application\brave.exe
 set CHROMEPATH=%PROG%\Google\Chrome\Application\chrome.exe
 set FIREFOXPATH=%PROG%\"Mozilla Firefox"\firefox.exe
 
-rem set BROWSEREXPR=brave
-rem set BROWSERPATH=%BRAVEPATH%
+set BROWSEREXPR=brave
+set BROWSERPATH=%BRAVEPATH%
+rem set USERDATADIR=--user-data-dir=K:\apps\brave
 
-set BROWSEREXPR=chrome
-set BROWSERPATH=%CHROMEPATH%
-set BROWSEROPTS=--profile-directory="Default"
+rem set BROWSEREXPR=chrome
+rem set BROWSERPATH=%CHROMEPATH%
+rem set USERDATADIR=--user-data-dir=K:\apps\chrome
+rem set BROWSEROPTS=--profile-directory="Default"
 
 rem set BROWSEREXPR=firefox
 rem set BROWSERPATH=%FIREFOXPATH%
 
 tasklist | findstr %BROWSEREXPR% && goto :browserrunning
 rem if exist %BROWSERPATH% start /max %BROWSERPATH%
-if exist %BROWSERPATH% start /max %BROWSERPATH% %BROWSEROPTS%
+if exist %BROWSERPATH% start /max %BROWSERPATH% %USERDATADIR% %BROWSEROPTS%
 :browserrunning
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

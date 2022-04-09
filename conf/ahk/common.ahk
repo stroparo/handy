@@ -45,17 +45,54 @@ return
 ; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Daily speech - english
 
-::afaik::as far as I know
-::tyvm::thank you very much
+::lavaseca::0UE95ADR202516K
+
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Daily speech - english
+
+::??rev::@devops, please review and approve{Space}
+::afaik::As far as I know,{space}
+::imho::In my opinion,{space}
+::tyvm::Thank you very much,{space}
+
+:R:??clo::
+Send Hello,+{Enter}
+Send Please validate issue(s) is/are solved and advise ASAP for proper story/ticket closure. Thanks.+{Enter}
+Send Thanks,+{Enter}
+Send {Up}{Up}
+return
+
+:R:??upd::
+Send Hello,+{Enter}
+Send Please see the update in the story's discussion and validate on your side.+{Enter}
+Send Thanks,+{Enter}
+Send {Up}{Up}
+return
 
 ; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Daily speech - portuguese
 
-::bdia::bom dia, tudo bem?
-::btar::boa tarde, tudo bem?
-::bnoi::boa noite, tudo bem?
-::tdbem::oi, tudo bem?
-::tdvc::oi, tudo bem e voce?
+::bdia::bom dia, td bem?
+::btar::boa tarde, td bem?
+::bnoi::boa noite, td bem?
+::tdbem::oi, td bem?
+::tdvc::oi, td bem e voce?
+
+; Work statuses - portuguese
+::--ana::Analisando.
+::--imp::Em implantação
+::--des::Em desenvolvimento
+::--doc::Em processo de documentação
+::--int::Teste integrado em execução
+::--icr::Investigando causa raiz
+::--tu::Teste unitário em execução
+::--agap::Aguardando aprovação
+::--agst::Aguardando status
+::--agch::Aguardando abertura de chamado
+::--agus::Aguardando usuário
+
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Common commands
@@ -76,8 +113,8 @@ return
 ::cvco::Courses
 ::cvce::Certificates
 ::cvpr::Side Projects (Open Source)
-::jjdev::Software Developer
-::jjdo::DevOps Engineer
+::jjdeve::Software Developer
+::jjdevo::DevOps Engineer
 
 ; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Plugin inspection
@@ -111,10 +148,34 @@ Send, - X-RAAS2{Enter}
 Send, - X-Visibility{Enter}
 return
 
+
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Unix/*Nix/Linux Shell commands
+
+; Basic
+::zzgit::%ProgramFiles%\Git\usr\bin\mintty.exe -w max -
+::zzsho::set -b`; set -o vi`;export EDITOR=vim{Enter}
+
+; Basic - runr
+::zzrunr::bash -c "$(curl -LSf "https://bitbucket.org/stroparo/runr/raw/master/entry.sh" || curl -LSf "https://raw.githubusercontent.com/stroparo/runr/master/entry.sh")" entry.sh{Space}
+::zzalias::bash -c "$(curl -LSf "https://bitbucket.org/stroparo/runr/raw/master/entry.sh" || curl -LSf "https://raw.githubusercontent.com/stroparo/runr/master/entry.sh")" entry.sh alias {;} . ~/.aliases-cs{ENTER}
+::zzds::bash -c "$(curl -LSf "https://bitbucket.org/stroparo/runr/raw/master/entry.sh" || curl -LSf "https://raw.githubusercontent.com/stroparo/runr/master/entry.sh")" entry.sh alias setupsidra {;} . ~/.aliases-cs {;} . ~/.zdra/zdra.sh ~/.zdra{ENTER}
+::zzssh::bash -c "$(curl -LSf "https://bitbucket.org/stroparo/runr/raw/master/entry.sh" || curl -LSf "https://raw.githubusercontent.com/stroparo/runr/master/entry.sh")" entry.sh sshkeygen sshmodes {;} . ~/.aliases-cs{ENTER}
+
+; Loops
+::whileread::while read i `; do echo "$i" `; done
+::xargs1::xargs -I{} -n1{Space}
+
+; Partials
+::pyjson::python -c 'import sys, json`; print json.load(sys.stdin)["'
+::suuu::sudo su -{Space}
+
+
 ; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Windows commands
 
 ::envvar::rundll32 sysdm.cpl,EditEnvironmentVariables
+
 
 ; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

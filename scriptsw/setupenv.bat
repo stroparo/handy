@@ -17,7 +17,7 @@ echo
 
 :: Local env globals setup (this execution env):
 set DEV=Z:\workspace
-set STDIRPROGS=O:
+set STDIRPROGS=K:
 set STDIRSYNC=Z:\datacsyn
 
 :: Local env globals, derived from other globals:
@@ -50,6 +50,7 @@ SETX ONEDRIVEHOME "%ONEDRIVEHOME%"
 
 :: PATH global:
 set GPATH=%MYOPT%\ag
+set GPATH=%GPATH%;%USERPROFILE%\scoop\shims
 set GPATH=%GPATH%;%MYOPT%\clamav
 set GPATH=%GPATH%;%MYOPT%\clcl
 set GPATH=%GPATH%;%MYOPT%\git

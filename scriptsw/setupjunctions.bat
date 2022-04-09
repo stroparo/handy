@@ -63,8 +63,8 @@ rem if not exist %LocalAppData%\Microsoft\Edge %JUNCTION% %LocalAppData%\Microso
 :: Etcetera:
 
 :: Workspacee (DEV):
-rem if not exist %USERPROFILE%\.ds %JUNCTION% %USERPROFILE%\.ds Z:\appsw\.ds
-rem if not exist %USERPROFILE%\.ds-backups %JUNCTION% %USERPROFILE%\.ds-backups Z:\appsw\.ds-backups
+rem if not exist %USERPROFILE%\.zdra %JUNCTION% %USERPROFILE%\.zdra Z:\appsw\.zdra
+rem if not exist %USERPROFILE%\.zdra-backups %JUNCTION% %USERPROFILE%\.zdra-backups Z:\appsw\.zdra-backups
 rem if not exist %USERPROFILE%\workspace %JUNCTION% %USERPROFILE%\workspace %DEV%
 
 pause
