@@ -5,10 +5,14 @@ which curl || (sudo apt-get install curl >/dev/null 2>&1) || (sudo pacman -S cur
 if [ -d "${DEV}/runr" ] ; then
   # Setup from local files:
   if [ -d "${DEV}/dotfiles" ] ; then
-    export RUNR_ASSETS_REPOS="${DEV}/dotfiles"
-    export RUNR_ASSETS_REPOS_FALLBACKS=""
+    (
+      export RUNR_ASSETS_REPOS="${DEV}/dotfiles"
+      export RUNR_ASSETS_REPOS_FALLBACKS=""
+      bash -c "$(cat "${DEV}/runr/entry.sh")" entry.sh "${RECIPE}"
+    )
+  else
+    bash -c "$(cat "${DEV}/runr/entry.sh")" entry.sh "${RECIPE}"
   fi
-  bash -c "$(cat "${DEV}/runr/entry.sh")" entry.sh "${RECIPE}"
 else
   # Setup from remote files:
   bash -c "$(curl -LSf "https://bitbucket.org/stroparo/runr/raw/master/entry.sh" \
