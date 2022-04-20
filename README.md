@@ -18,6 +18,14 @@ rm -f -r ~/.runr ~/.zdra* \
   && eval "$(curl -fsS 'https://raw.githubusercontent.com/stroparo/handy/master/runr-provision-cz.sh')"
 ```
 
+From local handy repository:
+
+```
+rm -f -r ~/.runr ~/.zdra* \
+  && cd \
+  && ${DEV:-$HOME/workspace}/handy/runr-provision-cz.sh')"
+```
+
 ## Provision Linux & Unix
 
 IMPORTANT:
