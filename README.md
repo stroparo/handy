@@ -23,7 +23,7 @@ From local handy repository:
 ```
 rm -f -r ~/.runr ~/.zdra* \
   && cd \
-  && "${DEV:-$HOME/workspace}/handy/runr-provision-cz.sh')"
+  && bash "${DEV:-$HOME/workspace}/handy/runr-provision-cz.sh"
 ```
 
 ## Provision Linux & Unix
