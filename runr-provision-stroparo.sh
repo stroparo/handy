@@ -8,8 +8,8 @@ if [ -d "${DEV}/dotfiles" ] ; then
   export RUNR_ASSETS_REPOS_FALLBACKS=""
 fi
 bash -c "$(cat "${DEV}/runr/entry.sh" 2>/dev/null \
-    || curl -LSf "https://bitbucket.org/stroparo/runr/raw/master/entry.sh" \
-    || curl -LSf "https://raw.githubusercontent.com/stroparo/runr/master/entry.sh")" \
+    || curl -LSf "https://raw.githubusercontent.com/stroparo/runr/master/entry.sh" \
+    || curl -LSf "https://bitbucket.org/stroparo/runr/raw/master/entry.sh")" \
     entry.sh "${RECIPE}"
 . "${ZDRA_HOME:-$HOME/.zdra}/zdra.sh"
 . ~/.aliases-cs
