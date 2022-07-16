@@ -16,6 +16,9 @@ set WSDIR=%DEV%
 if not exist %WSDIR% set WSDIR=Z:\workspace
 if not exist %WSDIR% if exist %USERPROFILE%\workspace set WSDIR=%USERPROFILE%\workspace
 
+:: PortableApps container directory:
+set PORTABLEPARENT=Z:
+
 :: Working dirs for handy stuff:
 set HANDYDIR=%WSDIR%\handy
 if not exist %HANDYDIR% if exist Z:\handy set HANDYDIR=Z:\handy
@@ -161,13 +164,12 @@ if exist Z:\Dropbox set DROPBOXHOME=Z:\Dropbox
 :existsdropboxhome
 
 :: PortableApps
-set PORTABLEPARENT=Z:
 if not exist %PORTABLEPARENT%\PortableApps if exist %DROPBOXHOME%\PortableApps set PORTABLEPARENT=%DROPBOXHOME%
 if not exist %PORTABLEPARENT%\PortableApps if exist %USERPROFILE%\PortableApps set PORTABLEPARENT=%USERPROFILE%
 
 :: Telegram
 set TGPATH=Z:\optz\Telegram\Telegram.exe
-if exist %TGPATH% start %TGPATH%
+rem if exist %TGPATH% start %TGPATH%
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Env specific startup

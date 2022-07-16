@@ -9,9 +9,9 @@ rem set CRYPT_OPTIONS=/tc
 
 set DATA_PATH=K:
 set DATA_EXTRA0=C:\Users\user
-set DATA_EXTRA1=J:
+set DATA_EXTRA1=C:\Users\strop
 set DATA_EXTRA2=I:
-set DATA_EXTRA3=P:
+set DATA_EXTRA3=J:
 
 
 :: Mount encrypted partition:

@@ -91,7 +91,7 @@ if exist "I:\%BASENAMEDRIVERSDIR%" explorer "I:\%BASENAMEDRIVERSDIR%"
 if exist "J:\%BASENAMEDRIVERSDIR%" explorer "J:\%BASENAMEDRIVERSDIR%"
 if exist "T:\%BASENAMEDRIVERSDIR%" explorer "T:\%BASENAMEDRIVERSDIR%"
 @echo
-@echo provision-cz-win: Install drivers in the explorer window just opened (could have not found)...
+@echo provision-cz-win: Install drivers in the explorer window just opened, if any...
 pause
 
 :notrambo
@@ -150,6 +150,8 @@ copy /B /Y %SCRIPTSW%\boot-cloud.lnk %USERPROFILE%\Desktop\
 copy /B /Y %SCRIPTSW%\bootpre.lnk %USERPROFILE%\Desktop\
 copy /B /Y %SCRIPTSW%\bootsec.lnk %USERPROFILE%\Desktop\
 dir %USERPROFILE%\Desktop\boot*lnk
+echo provision-cz-win: Scripts copied to %USERPROFILE%\Desktop
+pause
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 @echo provision-cz-win: Setting up system preferences and startup via registry ...

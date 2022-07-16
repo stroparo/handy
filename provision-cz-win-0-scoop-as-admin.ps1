@@ -1,2 +1,7 @@
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser
-iwr -useb get.scoop.sh | iex
+
+# Older
+# iwr -useb get.scoop.sh | iex
+
+# Newer
+irm get.scoop.sh | iex
