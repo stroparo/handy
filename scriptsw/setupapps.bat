@@ -8,16 +8,11 @@ set PROG=C:\"Program Files"
 set PROG32=C:\"Program Files (x86)"
 if not exist %PROG32% set PROG32=%PROG%
 
-set PKGWIN=%STDIRSYNC%\pkgs-4windows
 if not exist "%PKGWIN%" if exist A:\sp--pkgs\pkgs-4windows set PKGWIN=A:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist B:\sp--pkgs\pkgs-4windows set PKGWIN=B:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist D:\sp--pkgs\pkgs-4windows set PKGWIN=D:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist E:\sp--pkgs\pkgs-4windows set PKGWIN=E:\sp--pkgs\pkgs-4windows
 if not exist "%PKGWIN%" if exist F:\sp--pkgs\pkgs-4windows set PKGWIN=F:\sp--pkgs\pkgs-4windows
-if not exist "%PKGWIN%" if exist H:\sp--pkgs\pkgs-4windows set PKGWIN=H:\sp--pkgs\pkgs-4windows
-if not exist "%PKGWIN%" if exist S:\sp--pkgs\pkgs-4windows set PKGWIN=S:\sp--pkgs\pkgs-4windows
-if not exist "%PKGWIN%" if exist Y:\pkgs-4windows set PKGWIN=Y:\pkgs-4windows
-if not exist "%PKGWIN%" if exist Z:\pkgs-4windows set PKGWIN=Z:\pkgs-4windows
 set PKGDEVEL=%PKGWIN%\devel
 set PKGMAINT=%PKGWIN%\maint
 set PKGMAINTMISC=%PKGWIN%\maint\misc
@@ -25,48 +20,38 @@ set PKGNINITE=%PKGWIN%\maint\ninite-singletons
 set PKGOPT=%PKGWIN%\opt
 
 :: Other packages:
-set DATAXCS=K:\dataxcs
 set PKGEXTRA=%DATAXCS%\pkgs-4windows-extras
 set PKGREGD=%DATAXCS%\pkgs-4windows-registered
+
+:: Git:
+set DIRGIT1=%UserProfile%\scoop\apps\git-with-openssh
+set DIRGIT2=%ProgramFiles%\Git
+set PKGGIT=%DATAXCSTM%\pkgs-4windows-conting\offline-installers\git.exe
+
 :: Macrium Reflect Free image cloning:
 set PKGMACRIUM=%DATAXCS%\pkgs-4windows-registered\macrium-free.exe
 set PKGMACRIUMB=A:\sp--pkgs\macrium-free.exe
 set PKGMACRIUMC=B:\sp--pkgs\macrium-free.exe
 set PKGWSL=%DATAXCS%\pkgs-4windows-wsl-linux
 
-:: Etcetera
-set DIRGIT1=%UserProfile%\scoop\apps\git-with-openssh
-set DIRGIT2=%ProgramFiles%\Git
-set PKGGIT=J:\dataxcstm\pkgs-4windows-conting\offline-installers\git.exe
+:: PortableApps:
+rem set PAROOT=Z:\PortableApps
+rem set SEVENFM=%PAROOT%\7-ZipPortable\App\7-Zip\7zFM.exe
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo setupapps: started setting up applications ...
-
 
 :: Ninite automated installations:
 :: Quote this ninite call command below for 7zip otherwise it oddly breaks:
 rem if not exist "%ProgramFiles%"\7-Zip  "%PKGNINITE%\Ninite 7Zip Installer.exe"
 %PKGMAINT%\"ninite.exe"
 
-
-if %computername% == RAMBO goto :ninirambo
-goto :nininonrambo
-
-:nininonrambo
-rem "%PKGNINITE%\Ninite Everything Installer.exe"
-rem "%PKGNINITE%\Ninite Launchy Installer.exe"
-goto :niniend
-
-:ninirambo
-rem if not exist %PROG32%\Steam                     	"%PKGNINITE%\Ninite Steam Installer.exe"
-goto :niniend
-
-:niniend
-
-
-:: Deploy portable applications (semi-automated):
+:: Deploy opt applications (semi-automated):
 %COMSPEC% /c %PKGOPT%\0deploy.bat
+
+:: Manual installations:
+explorer %PKGMAINT%\manually-updated
 explorer %PKGMAINT%\net-installers
 explorer %PKGDEVEL%
 explorer %PKGEXTRA%
@@ -76,7 +61,6 @@ echo Complete the manual package setups then hit ENTER to continue...
 echo ...
 echo ...
 pause
-
 
 :: Regular setups:
 if not exist %PROG32%\Auslogics\"Duplicate File Finder"     %PKGMAINT%\duplicate-file-finder-setup.exe /silent

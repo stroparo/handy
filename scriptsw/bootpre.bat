@@ -21,26 +21,31 @@ if exist Z:\ goto :zzend
 echo Waiting for Z:\ to be mounted...
 
 if not exist "%DATA_PATH%\zz.%CRYPT_EXTENSION%" goto :nozzatdp
+echo "%DATA_PATH%\zz.%CRYPT_EXTENSION%"
 %CRYPT_PROG% %CRYPT_OPTIONS% /v "%DATA_PATH%\zz.%CRYPT_EXTENSION%" /l z /q
 goto :zzmount
 :nozzatdp
 
-if not exist "%DATA_EXTRA0%\zz.%CRYPT_EXTENSION%" goto :nozzatx1
+if not exist "%DATA_EXTRA0%\zz.%CRYPT_EXTENSION%" goto :nozzatx0
+echo "%DATA_EXTRA0%\zz.%CRYPT_EXTENSION%"
 %CRYPT_PROG% %CRYPT_OPTIONS% /v "%DATA_EXTRA0%\zz.%CRYPT_EXTENSION%" /l z /q
 goto :zzmount
 :nozzatx0
 
 if not exist "%DATA_EXTRA1%\zz.%CRYPT_EXTENSION%" goto :nozzatx1
+echo "%DATA_EXTRA1%\zz.%CRYPT_EXTENSION%"
 %CRYPT_PROG% %CRYPT_OPTIONS% /v "%DATA_EXTRA1%\zz.%CRYPT_EXTENSION%" /l z /q
 goto :zzmount
 :nozzatx1
 
 if not exist "%DATA_EXTRA2%\zz.%CRYPT_EXTENSION%" goto :nozzatx2
+echo "%DATA_EXTRA2%\zz.%CRYPT_EXTENSION%"
 %CRYPT_PROG% %CRYPT_OPTIONS% /v "%DATA_EXTRA2%\zz.%CRYPT_EXTENSION%" /l z /q
 goto :zzmount
 :nozzatx2
 
 if not exist "%DATA_EXTRA3%\zz.%CRYPT_EXTENSION%" goto :nozzatx3
+echo "%DATA_EXTRA3%\zz.%CRYPT_EXTENSION%"
 %CRYPT_PROG% %CRYPT_OPTIONS% /v "%DATA_EXTRA3%\zz.%CRYPT_EXTENSION%" /l z /q
 goto :zzmount
 :nozzatx3

@@ -3,10 +3,9 @@
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Globals
 
-if "%STDIRDATA%\" == "\" set STDIRDATA=K:
-if "%MYOPT%" == "" set MYOPT=%STDIRDATA%\opt
+if "%MYOPT%" == "" set MYOPT=%USERPROFILE%\opt
 
-set JUNCTION=%STDIRDATA%\opt\junction\junction.exe
+set JUNCTION=%MYOPT%\junction\junction.exe
 
 
 :: ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
